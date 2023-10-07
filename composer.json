@@ -1,0 +1,32 @@
+{
+    "name": "ngsoft/emby-client-php",
+    "description": "A php port of EmbyClient.JavaScript.",
+    "keywords": [
+        "emby",
+        "sdk",
+        "client",
+        "rest",
+        "api"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aymeric Anger",
+            "role": "Developer",
+            "homepage": "https://github.com/ngsoft"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmbyClient\\": "src/"
+        },
+        "files": []
+    }
+}
