@@ -6,6 +6,8 @@ namespace EmbyClient;
 
 class ApiClient
 {
+    public const APP           = 'EmbyClientPhp';
+    public const VERSION       = '1.0.0';
     protected string $basepath = 'http://emby.media/emby';
 
     public function getBasepath(): string
