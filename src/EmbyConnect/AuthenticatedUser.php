@@ -10,9 +10,13 @@ use EmbyClient\EmbyConnect\Model\Server;
 use EmbyClient\EmbyConnect\Model\User;
 use EmbyClient\HttpClient;
 use EmbyClient\Model;
+use NGSOFT\DataStructure\Sort;
+use NGSOFT\Traits\ReversibleIteratorTrait;
 
-class AuthenticatedUser extends Model
+class AuthenticatedUser extends Model implements \Countable, \IteratorAggregate
 {
+    use ReversibleIteratorTrait;
+
     protected static array $mapping  = [
         'user' => User::class,
     ];
@@ -70,5 +74,16 @@ class AuthenticatedUser extends Model
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function entries(Sort $sort = Sort::ASC): iterable
+    {
+        $entries = $this->getServerList();
+
+        if (Sort::DESC === $sort)
+        {
+            $entries = array_reverse($entries);
+        }
+        yield from $entries;
     }
 }

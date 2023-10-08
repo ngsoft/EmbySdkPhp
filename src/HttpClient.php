@@ -6,19 +6,32 @@ namespace EmbyClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\HttpFactory;
+use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UriInterface;
 
 final class HttpClient
 {
+    private static int $timeout      = 5;
+
+    private static ?Client $instance = null;
+
     private function __construct()
     {
     }
 
+    public static function setTimeout(int $timeout): void
+    {
+        self::$timeout  = $timeout;
+        self::$instance = null;
+    }
+
     public static function getHttpClient(): Client
     {
-        static $instance;
-        return $instance ??= new Client();
+        return self::$instance ??= new Client([
+            RequestOptions::TIMEOUT         => self::$timeout,
+            RequestOptions::CONNECT_TIMEOUT => self::$timeout,
+        ]);
     }
 
     public static function getHttpFactory(): HttpFactory

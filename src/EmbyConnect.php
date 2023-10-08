@@ -5,20 +5,24 @@ declare(strict_types=1);
 namespace EmbyClient;
 
 use EmbyClient\EmbyConnect\AuthenticatedUser;
-use Psr\Cache\InvalidArgumentException;
 
-class EmbyConnect
+final class EmbyConnect
 {
     public const BASEPATH              = 'https://connect.emby.media/service';
     public const SERVERS_ENDPOINT      = '/servers';
     public const AUTHENTICATE_ENDPOINT = '/user/authenticate';
 
     /**
+     * @var array<string,Connection>
+     */
+    private static array $connections  = [];
+
+    /**
      * @return Connection|Connection[]
      */
     public static function connect(string $username, string $password, ?string $serverName = null): array|Connection
     {
-        static $cache = [];
+        static $cache      = [];
 
         if ( ! isset($cache[$username][$password]))
         {
@@ -26,37 +30,31 @@ class EmbyConnect
 
             $key = sha1(sprintf(
                 '%s::%s:%s',
-                static::class,
+                self::class,
                 $username,
                 $password
             ));
 
-            try
+            if ($data = Cache::get($key))
             {
-                if ($data = Cache::get($key))
+                if ($valid = count($data) > 0)
                 {
-                    if ($valid = ! empty($data))
+                    /**
+                     * @var Connection $connection
+                     */
+                    foreach ($data as $connection)
                     {
-                        /**
-                         * @var Connection $connection
-                         */
-                        foreach ($data as $connection)
+                        if ( ! $connection->testConnection())
                         {
-                            if ( ! $connection->testConnection())
-                            {
-                                $valid = false;
-                            }
-                        }
-
-                        if ($valid)
-                        {
-                            var_dump('cache hit!');
-                            $cache[$username][$password] = $data;
+                            $valid = false;
                         }
                     }
+
+                    if ($valid)
+                    {
+                        $cache[$username][$password] = $data;
+                    }
                 }
-            } catch (InvalidArgumentException)
-            {
             }
 
             if ( ! isset($cache[$username][$password]))
@@ -101,13 +99,8 @@ class EmbyConnect
 
                 if ( ! empty($result))
                 {
-                    try
-                    {
-                        Cache::set($key, $result);
-                        $cache[$username][$password] = $result;
-                    } catch (InvalidArgumentException)
-                    {
-                    }
+                    Cache::set($key, $result);
+                    $cache[$username][$password] = $result;
                 }
             }
         }
@@ -119,7 +112,9 @@ class EmbyConnect
             );
         }
 
-        $result       = $cache[$username][$password];
+        $result            = $cache[$username][$password];
+
+        self::$connections = array_merge(self::$connections, $result);
 
         if (isset($serverName))
         {
@@ -133,5 +128,18 @@ class EmbyConnect
         }
 
         return $result;
+    }
+
+    public static function getConnection(string $name): ?Connection
+    {
+        return self::$connections[$name] ?? null;
+    }
+
+    /**
+     * @return Connection[]
+     */
+    public static function getConnections(): array
+    {
+        return self::$connections;
     }
 }

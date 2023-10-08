@@ -15,8 +15,6 @@ abstract class Model implements \JsonSerializable
 
     final public function __unserialize(array $data): void
     {
-        $properties = $this->getPropertyList();
-
         foreach ($this->getPropertyList() as $index => $prop)
         {
             $this->{$prop} = $data[$index];
@@ -37,13 +35,15 @@ abstract class Model implements \JsonSerializable
 
     public static function make(array $data): static
     {
-        $instance = new static();
+        $instance   = new static();
+
+        $properties = $instance->getPropertyList();
 
         foreach ($data as $prop => $value)
         {
             $prop = lcfirst($prop);
 
-            if (property_exists($instance, $prop))
+            if (in_array($prop, $properties))
             {
                 if (is_string($value))
                 {
@@ -76,8 +76,9 @@ abstract class Model implements \JsonSerializable
 
     private function getPropertyList(): array
     {
-        static $cache = [];
-        $className    = get_class($this);
+        static $cache, $key = '665d11e749a5b8a929dd11fa5b4d11e249a54228';
+        $cache ??= Cache::get($key, []);
+        $className          = get_class($this);
 
         if ( ! isset($cache[$className]))
         {
@@ -95,6 +96,8 @@ abstract class Model implements \JsonSerializable
                     }
                     $cache[$className][] = $reflectionProperty->getName();
                 }
+
+                Cache::set($key, $cache);
             } catch (\ReflectionException)
             {
             }
