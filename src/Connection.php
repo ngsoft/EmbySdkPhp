@@ -12,7 +12,10 @@ class Connection
     public const DEFAULT_EMBY_PORT    = 8096;
     public const DEFAULT_HEADER_TOKEN = 'X-Emby-Token';
 
-    protected $connection;
+    /**
+     * Server test connection status.
+     */
+    protected ?bool $connection       = null;
 
     public function __construct(
         protected string $server,
@@ -62,12 +65,9 @@ class Connection
             ->withHeader(static::DEFAULT_HEADER_TOKEN, $this->getToken())
         ;
 
-        if (count($headers))
+        foreach ($headers as $header => $value)
         {
-            foreach ($headers as $header => $value)
-            {
-                $request = $request->withHeader($header, $value);
-            }
+            $request = $request->withHeader($header, $value);
         }
 
         return $request;
