@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EmbyClient\Model\LiveTV\Api;
+namespace EmbyClient\Model\LiveTv\Api;
 
 use EmbyClient\Model\RefName;
 

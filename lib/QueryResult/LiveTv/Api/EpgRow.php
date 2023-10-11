@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace EmbyClient\Model\QueryResult\LiveTV\Api;
+namespace EmbyClient\Model\QueryResult\LiveTv\Api;
 
 class EpgRow extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'items' => \EmbyClient\Model\LiveTV\Api\EpgRow::class,
+        'items' => \EmbyClient\Model\LiveTv\Api\EpgRow::class,
     ];
 
-    /** @var \EmbyClient\Model\LiveTV\Api\EpgRow[] */
+    /** @var \EmbyClient\Model\LiveTv\Api\EpgRow[] */
     protected array $items;
     protected int $totalRecordCount;
 
     /**
-     * @return \EmbyClient\Model\LiveTV\Api\EpgRow[]
+     * @return \EmbyClient\Model\LiveTv\Api\EpgRow[]
      */
     public function getItems(): array
     {
