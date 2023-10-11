@@ -23,7 +23,7 @@ return [
     'directory_list'                  => [
         'src/',
         'vendor/',
-        '.run/dist/',
+        'lib/',
     ],
     // A directory list that defines files that will be excluded
     // from static analysis, but whose class and method

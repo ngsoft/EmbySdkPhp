@@ -29,7 +29,7 @@
   "autoload": {
     "psr-4": {
       "EmbyClient\\": "src/",
-      "EmbyClient\\Model\\": ".run/dist"
+      "EmbyClient\\Model\\": "lib/"
     },
     "files": []
   },
@@ -46,6 +46,6 @@
     "sort-packages": true
   },
   "scripts": {
-    "fix": "php vendor/bin/php-cs-fixer fix .run/dist"
+    "fix": "php vendor/bin/php-cs-fixer fix lib"
   }
 }
