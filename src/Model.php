@@ -4,16 +4,21 @@ declare(strict_types=1);
 
 namespace EmbyClient;
 
-abstract class Model implements \JsonSerializable
+abstract class Model implements \JsonSerializable, \ArrayAccess
 {
+    /**
+     * Type mapping.
+     *
+     * @var array<string,string>
+     */
     protected static array $mapping = [];
 
-    final public function __serialize(): array
+    public function __serialize(): array
     {
         return array_map(fn ($prop) => $this->{$prop}, $this->getPropertyList());
     }
 
-    final public function __unserialize(array $data): void
+    public function __unserialize(array $data): void
     {
         foreach ($this->getPropertyList() as $index => $prop)
         {
@@ -57,14 +62,32 @@ abstract class Model implements \JsonSerializable
 
                 $mappedClass       = static::$mapping[$prop] ?? null;
 
-                if (isset($mappedClass) && is_array($value))
+                if (isset($mappedClass))
                 {
-                    if (array_is_list($value))
+                    if (is_array($value))
                     {
-                        $value = array_map(fn ($item) => $mappedClass::make($item), $value);
-                    } else
+                        if (
+                            array_is_list($value)
+                            && class_exists($mappedClass)
+                            && is_a($mappedClass, self::class, true)
+                        ) {
+                            $value = array_map(fn ($item) => $mappedClass::make($item), $value);
+                        } elseif (
+                            class_exists($mappedClass)
+                            && is_a($mappedClass, self::class, true))
+                        {
+                            $value = $mappedClass::make($value);
+                        }
+                    } elseif (is_a(
+                        $mappedClass,
+                        \BackedEnum::class,
+                        true
+                    ))
                     {
-                        $value = $mappedClass::make($value);
+                        $value = $mappedClass::from($value);
+                    } elseif (class_exists($mappedClass))
+                    {
+                        $value = new $mappedClass($value);
                     }
                 }
 
@@ -72,6 +95,36 @@ abstract class Model implements \JsonSerializable
             }
         }
         return $instance;
+    }
+
+    public function offsetExists(mixed $offset): bool
+    {
+        if ( ! is_string($offset))
+        {
+            return false;
+        }
+
+        return property_exists($this, $offset);
+    }
+
+    public function offsetGet(mixed $offset): mixed
+    {
+        if ( ! is_string($offset))
+        {
+            return null;
+        }
+
+        return $this->{$offset};
+    }
+
+    public function offsetSet(mixed $offset, mixed $value): void
+    {
+        // noop
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        // noop
     }
 
     private function getPropertyList(): array
