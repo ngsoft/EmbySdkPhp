@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Updates;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Updates.PackageVersionClass')]
 enum PackageVersionClass: string

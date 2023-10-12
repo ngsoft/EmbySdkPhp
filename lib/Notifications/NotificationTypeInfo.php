@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Notifications;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Notifications.NotificationTypeInfo')]
 class NotificationTypeInfo extends \EmbyClient\Model

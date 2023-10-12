@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Logging;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Logging.LogSeverity')]
 enum LogSeverity: string

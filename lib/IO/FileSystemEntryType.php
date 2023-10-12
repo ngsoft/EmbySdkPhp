@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\IO;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.IO.FileSystemEntryType')]
 enum FileSystemEntryType: string

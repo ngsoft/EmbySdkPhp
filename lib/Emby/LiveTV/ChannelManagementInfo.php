@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\LiveTV;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.LiveTV.ChannelManagementInfo')]
 class ChannelManagementInfo extends \EmbyClient\Model

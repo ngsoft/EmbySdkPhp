@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\UserLibrary;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Api.UserLibrary.AddTags')]
 class AddTags extends \EmbyClient\Model

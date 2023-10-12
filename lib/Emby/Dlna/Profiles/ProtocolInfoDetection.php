@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\Dlna\Profiles;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Dlna.Profiles.ProtocolInfoDetection')]
 class ProtocolInfoDetection extends \EmbyClient\Model

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Library;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Api.Library.UpdateMediaPath')]
 class UpdateMediaPath extends \EmbyClient\Model

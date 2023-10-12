@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('MediaBrowser.Model.Entities.MediaStream')]
 class MediaStream extends \EmbyClient\Model
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Configuration;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Configuration.TypeOptions')]
 class TypeOptions extends \EmbyClient\Model

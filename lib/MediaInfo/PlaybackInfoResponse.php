@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\MediaInfo;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.MediaInfo.PlaybackInfoResponse')]
 class PlaybackInfoResponse extends \EmbyClient\Model

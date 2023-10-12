@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('MediaBrowser.Model.Entities.Video3DFormat')]
 enum Video3DFormat: string
 {

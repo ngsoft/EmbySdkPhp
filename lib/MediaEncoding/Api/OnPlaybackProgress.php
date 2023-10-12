@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\MediaEncoding\Api;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Server.MediaEncoding.Api.OnPlaybackProgress')]
 class OnPlaybackProgress extends \EmbyClient\Model

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Sync\Model;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Server.Sync.Model.SyncDialogOptions')]
 class SyncDialogOptions extends \EmbyClient\Model

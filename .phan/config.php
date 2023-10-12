@@ -92,5 +92,6 @@ return [
         'PhanParamTooFewInternalUnpack',
         'PhanUnusedPublicMethodParameter',
         'PhanUnusedPublicNoOverrideMethodParameter',
+        'PhanParamNameIndicatingUnusedInClosure',
     ],
 ];

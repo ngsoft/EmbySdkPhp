@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EmbyClient\Model;
-
-use Attribute;
+namespace EmbyClient;
 
 #[\Attribute(\Attribute::TARGET_CLASS)]
 class RefName

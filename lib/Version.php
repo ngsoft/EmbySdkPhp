@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('System.Version')]
 class Version extends \EmbyClient\Model
 {

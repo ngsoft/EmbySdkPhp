@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\Notifications\Api;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Notifications.Api.Notification')]
 class Notification extends \EmbyClient\Model

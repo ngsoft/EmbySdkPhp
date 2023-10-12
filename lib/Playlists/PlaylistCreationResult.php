@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Playlists;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Playlists.PlaylistCreationResult')]
 class PlaylistCreationResult extends \EmbyClient\Model

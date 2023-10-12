@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\RokuMetadata\Api;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('RokuMetadata.Api.ThumbnailSetInfo')]
 class ThumbnailSetInfo extends \EmbyClient\Model

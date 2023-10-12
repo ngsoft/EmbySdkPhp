@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\Media\Model\Types;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Media.Model.Types.ResolutionWithRate')]
 class ResolutionWithRate extends \EmbyClient\Model

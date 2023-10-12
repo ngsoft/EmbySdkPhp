@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('MediaBrowser.Model.Dto.ImageInfo')]
 class ImageInfo extends \EmbyClient\Model
 {

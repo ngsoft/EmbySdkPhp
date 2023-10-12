@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\MediaEncoding\Codecs\VideoCodecs;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Server.MediaEncoding.Codecs.VideoCodecs.VideoCodecBase')]
 class VideoCodecBase extends \EmbyClient\Model

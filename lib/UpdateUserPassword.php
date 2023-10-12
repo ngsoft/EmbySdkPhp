@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('Emby.Api.UpdateUserPassword')]
 class UpdateUserPassword extends \EmbyClient\Model
 {

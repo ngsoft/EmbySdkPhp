@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\Web\Api;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Web.Api.ConfigurationPageInfo')]
 class ConfigurationPageInfo extends \EmbyClient\Model

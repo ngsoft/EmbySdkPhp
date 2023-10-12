@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('Emby.Api.AuthenticateUser')]
 class AuthenticateUser extends \EmbyClient\Model
 {

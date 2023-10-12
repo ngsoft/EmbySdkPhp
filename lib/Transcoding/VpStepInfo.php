@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Transcoding;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Model.Session.Transcoding.VpStepInfo')]
 class VpStepInfo extends \EmbyClient\Model

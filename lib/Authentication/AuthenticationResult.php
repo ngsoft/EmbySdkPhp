@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Authentication;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.Controller.Authentication.AuthenticationResult')]
 class AuthenticationResult extends \EmbyClient\Model

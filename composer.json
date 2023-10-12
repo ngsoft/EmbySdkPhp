@@ -34,18 +34,20 @@
     "files": []
   },
   "require-dev": {
+    "brick/varexporter": "^0.4.0",
+    "friendsofphp/php-cs-fixer": "^3.34",
     "guzzlehttp/guzzle": "^7.8",
     "ngsoft/cache": "^2.0",
     "symfony/cache": "^6.3",
-    "symfony/var-dumper": "^6.3",
-    "wol-soft/php-json-schema-model-generator": "^0.23.5",
-    "friendsofphp/php-cs-fixer": "^3.34"
+    "symfony/var-dumper": "^6.3"
   },
   "config": {
     "process-timeout": 0,
     "sort-packages": true
   },
   "scripts": {
-    "fix": "php vendor/bin/php-cs-fixer fix lib"
+    "fix": "php vendor/bin/php-cs-fixer fix lib",
+    "generate": "php src/generator.php",
+    "generate:force": "php src/generator.php -f"
   }
 }

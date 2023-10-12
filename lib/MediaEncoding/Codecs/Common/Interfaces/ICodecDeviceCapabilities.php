@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\MediaEncoding\Codecs\Common\Interfaces;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Server.MediaEncoding.Codecs.Common.Interfaces.ICodecDeviceCapabilities')]
 class ICodecDeviceCapabilities extends \EmbyClient\Model

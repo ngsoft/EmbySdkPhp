@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Emby\Web\GenericEdit\Editors;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Web.GenericEdit.Editors.EditorButtonItem')]
 class EditorButtonItem extends \EmbyClient\Model

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model;
 
+use EmbyClient\RefName;
+
 #[RefName('MediaBrowser.Model.Activity.ActivityLogEntry')]
 class ActivityLogEntry extends \EmbyClient\Model
 {

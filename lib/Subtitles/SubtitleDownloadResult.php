@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Subtitles;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('Emby.Api.Subtitles.SubtitleDownloadResult')]
 class SubtitleDownloadResult extends \EmbyClient\Model

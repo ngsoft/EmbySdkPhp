@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\LiveTv\Api;
 
-use EmbyClient\Model\RefName;
+use EmbyClient\RefName;
 
 #[RefName('MediaBrowser.LiveTV.Api.EpgRow')]
 class EpgRow extends \EmbyClient\Model
