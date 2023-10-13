@@ -11,7 +11,7 @@ class DisplayPreferences extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'scrollDirection' => ScrollDirection::class,
-        'sortOrder      ' => SortOrder::class,
+        'sortOrder'       => SortOrder::class,
     ];
 
     protected string $id;

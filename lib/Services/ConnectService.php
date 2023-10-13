@@ -40,6 +40,22 @@ class ConnectService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getConnectPending'              => [],
+        'getConnectExchange'             => [
+            'connectUserId',
+        ],
+        'postUsersByIdConnectLink'       => [
+            'id',
+            'connectUsername',
+        ],
+        'deleteUsersByIdConnectLink'     => [
+            'id',
+        ],
+        'postUsersByIdConnectLinkDelete' => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Connect/Exchange'        => [
             'connectUserId' => true,

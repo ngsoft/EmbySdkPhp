@@ -10,11 +10,11 @@ use EmbyClient\RefName;
 class LibraryOptionsResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'metadataSavers  ' => LibraryOptionInfo::class,
-        'metadataReaders ' => LibraryOptionInfo::class,
+        'metadataSavers'   => LibraryOptionInfo::class,
+        'metadataReaders'  => LibraryOptionInfo::class,
         'subtitleFetchers' => LibraryOptionInfo::class,
-        'lyricsFetchers  ' => LibraryOptionInfo::class,
-        'typeOptions     ' => LibraryTypeOptions::class,
+        'lyricsFetchers'   => LibraryOptionInfo::class,
+        'typeOptions'      => LibraryTypeOptions::class,
     ];
 
     /** @var LibraryOptionInfo[] */

@@ -37,12 +37,12 @@ class PlayerStateInfo extends \EmbyClient\Model
         return $this->canSeek;
     }
 
-    public function getIsPaused(): bool
+    public function isPaused(): bool
     {
         return $this->isPaused;
     }
 
-    public function getIsMuted(): bool
+    public function isMuted(): bool
     {
         return $this->isMuted;
     }

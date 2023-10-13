@@ -76,6 +76,79 @@ class SubtitleService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'deleteItemsByIdSubtitlesByIndex'                                                => [
+            'id',
+            'mediaSourceId',
+            'index',
+        ],
+        'getProvidersSubtitlesSubtitlesById'                                             => [
+            'id',
+        ],
+        'deleteVideosByIdSubtitlesByIndex'                                               => [
+            'id',
+            'mediaSourceId',
+            'index',
+        ],
+        'getItemsByIdRemotesearchSubtitlesByLanguage'                                    => [
+            'id',
+            'mediaSourceId',
+            'language',
+            'isForced',
+            'isPerfectMatch',
+        ],
+        'postItemsByIdSubtitlesByIndexDelete'                                            => [
+            'id',
+            'mediaSourceId',
+            'index',
+        ],
+        'postItemsByIdRemotesearchSubtitlesBySubtitleid'                                 => [
+            'id',
+            'mediaSourceId',
+            'subtitleId',
+        ],
+        'postVideosByIdSubtitlesByIndexDelete'                                           => [
+            'id',
+            'mediaSourceId',
+            'index',
+        ],
+        'getItemsByIdByMediasourceidSubtitlesByIndexStreamByFormat'                      => [
+            'id',
+            'mediaSourceId',
+            'index',
+            'format',
+            'startPositionTicks',
+            'copyTimestamps',
+            'endPositionTicks',
+        ],
+        'getVideosByIdByMediasourceidSubtitlesByIndexStreamByFormat'                     => [
+            'id',
+            'mediaSourceId',
+            'index',
+            'format',
+            'startPositionTicks',
+            'copyTimestamps',
+            'endPositionTicks',
+        ],
+        'getItemsByIdByMediasourceidSubtitlesByIndexByStartpositionticksStreamByFormat'  => [
+            'id',
+            'mediaSourceId',
+            'index',
+            'format',
+            'startPositionTicks',
+            'copyTimestamps',
+            'endPositionTicks',
+        ],
+        'getVideosByIdByMediasourceidSubtitlesByIndexByStartpositionticksStreamByFormat' => [
+            'id',
+            'mediaSourceId',
+            'index',
+            'format',
+            'startPositionTicks',
+            'copyTimestamps',
+            'endPositionTicks',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Items/{Id}/Subtitles/{Index}'                                                       => [
             'mediaSourceId' => true,

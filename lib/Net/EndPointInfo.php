@@ -12,12 +12,12 @@ class EndPointInfo extends \EmbyClient\Model
     protected bool $isLocal;
     protected bool $isInNetwork;
 
-    public function getIsLocal(): bool
+    public function isLocal(): bool
     {
         return $this->isLocal;
     }
 
-    public function getIsInNetwork(): bool
+    public function isInNetwork(): bool
     {
         return $this->isInNetwork;
     }

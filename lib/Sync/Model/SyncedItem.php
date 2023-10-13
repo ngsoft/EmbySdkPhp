@@ -11,8 +11,8 @@ class SyncedItem extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'syncJobDateCreated' => \DateTimeImmutable::class,
-        'item              ' => \EmbyClient\Model\BaseItemDto::class,
-        'additionalFiles   ' => ItemFileInfo::class,
+        'item'               => \EmbyClient\Model\BaseItemDto::class,
+        'additionalFiles'    => ItemFileInfo::class,
     ];
 
     protected string $serverId;

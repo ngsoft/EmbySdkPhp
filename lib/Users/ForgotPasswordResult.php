@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class ForgotPasswordResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'action           ' => ForgotPasswordAction::class,
+        'action'            => ForgotPasswordAction::class,
         'pinExpirationDate' => \DateTimeImmutable::class,
     ];
 

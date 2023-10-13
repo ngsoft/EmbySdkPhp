@@ -35,7 +35,7 @@ class NotificationTypeInfo extends \EmbyClient\Model
         return $this->category;
     }
 
-    public function getIsBasedOnUserEvent(): bool
+    public function isBasedOnUserEvent(): bool
     {
         return $this->isBasedOnUserEvent;
     }

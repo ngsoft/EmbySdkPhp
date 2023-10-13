@@ -10,15 +10,15 @@ use EmbyClient\RefName;
 class DlnaProfile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type                 ' => DeviceProfileType::class,
-        'identification       ' => DeviceIdentification::class,
+        'type'                  => DeviceProfileType::class,
+        'identification'        => DeviceIdentification::class,
         'protocolInfoDetection' => ProtocolInfoDetection::class,
-        'directPlayProfiles   ' => \EmbyClient\Model\Dlna\DirectPlayProfile::class,
-        'transcodingProfiles  ' => \EmbyClient\Model\Dlna\TranscodingProfile::class,
-        'containerProfiles    ' => \EmbyClient\Model\Dlna\ContainerProfile::class,
-        'codecProfiles        ' => \EmbyClient\Model\Dlna\CodecProfile::class,
-        'responseProfiles     ' => \EmbyClient\Model\Dlna\ResponseProfile::class,
-        'subtitleProfiles     ' => \EmbyClient\Model\Dlna\SubtitleProfile::class,
+        'directPlayProfiles'    => \EmbyClient\Model\Dlna\DirectPlayProfile::class,
+        'transcodingProfiles'   => \EmbyClient\Model\Dlna\TranscodingProfile::class,
+        'containerProfiles'     => \EmbyClient\Model\Dlna\ContainerProfile::class,
+        'codecProfiles'         => \EmbyClient\Model\Dlna\CodecProfile::class,
+        'responseProfiles'      => \EmbyClient\Model\Dlna\ResponseProfile::class,
+        'subtitleProfiles'      => \EmbyClient\Model\Dlna\SubtitleProfile::class,
     ];
 
     protected DeviceProfileType $type;

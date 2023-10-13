@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class SyncJob extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'category        ' => SyncCategory::class,
-        'status          ' => SyncJobStatus::class,
-        'dateCreated     ' => \DateTimeImmutable::class,
+        'category'         => SyncCategory::class,
+        'status'           => SyncJobStatus::class,
+        'dateCreated'      => \DateTimeImmutable::class,
         'dateLastModified' => \DateTimeImmutable::class,
     ];
 

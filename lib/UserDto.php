@@ -10,12 +10,12 @@ use EmbyClient\RefName;
 class UserDto extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'dateCreated     ' => \DateTimeImmutable::class,
-        'connectLinkType ' => Connect\UserLinkType::class,
-        'lastLoginDate   ' => \DateTimeImmutable::class,
+        'dateCreated'      => \DateTimeImmutable::class,
+        'connectLinkType'  => Connect\UserLinkType::class,
+        'lastLoginDate'    => \DateTimeImmutable::class,
         'lastActivityDate' => \DateTimeImmutable::class,
-        'configuration   ' => Configuration\UserConfiguration::class,
-        'policy          ' => Users\UserPolicy::class,
+        'configuration'    => Configuration\UserConfiguration::class,
+        'policy'           => Users\UserPolicy::class,
     ];
 
     protected string $name;

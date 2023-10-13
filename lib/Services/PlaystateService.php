@@ -82,6 +82,77 @@ class PlaystateService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postSessionsPlaying'                       => [],
+        'postSessionsPlayingProgress'               => [],
+        'postSessionsPlayingPing'                   => [
+            'playSessionId',
+        ],
+        'postSessionsPlayingStopped'                => [],
+        'postUsersByUseridPlayeditemsById'          => [
+            'userId',
+            'datePlayed',
+            'id',
+        ],
+        'deleteUsersByUseridPlayeditemsById'        => [
+            'userId',
+            'id',
+        ],
+        'postUsersByUseridPlayingitemsById'         => [
+            'userId',
+            'id',
+            'mediaSourceId',
+            'canSeek',
+            'playMethod',
+            'liveStreamId',
+            'playSessionId',
+            'subtitleStreamIndex',
+            'audioStreamIndex',
+        ],
+        'deleteUsersByUseridPlayingitemsById'       => [
+            'userId',
+            'id',
+            'mediaSourceId',
+            'nextMediaType',
+            'liveStreamId',
+            'playSessionId',
+            'positionTicks',
+        ],
+        'postUsersByUseridItemsByItemidUserdata'    => [
+            'userId',
+            'itemId',
+        ],
+        'postUsersByUseridPlayingitemsByIdProgress' => [
+            'userId',
+            'id',
+            'mediaSourceId',
+            'isPaused',
+            'isMuted',
+            'playMethod',
+            'liveStreamId',
+            'playSessionId',
+            'repeatMode',
+            'subtitleOffset',
+            'playbackRate',
+            'volumeLevel',
+            'subtitleStreamIndex',
+            'audioStreamIndex',
+            'positionTicks',
+        ],
+        'postUsersByUseridPlayingitemsByIdDelete'   => [
+            'userId',
+            'id',
+            'mediaSourceId',
+            'nextMediaType',
+            'liveStreamId',
+            'playSessionId',
+            'positionTicks',
+        ],
+        'postUsersByUseridPlayeditemsByIdDelete'    => [
+            'userId',
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Sessions/Playing/Ping'                     => [
             'playSessionId' => true,

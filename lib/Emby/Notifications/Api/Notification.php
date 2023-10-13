@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class Notification extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'date ' => \DateTimeImmutable::class,
+        'date'  => \DateTimeImmutable::class,
         'level' => \EmbyClient\Model\Notifications\NotificationLevel::class,
     ];
 
@@ -38,7 +38,7 @@ class Notification extends \EmbyClient\Model
         return $this->date;
     }
 
-    public function getIsRead(): bool
+    public function isRead(): bool
     {
         return $this->isRead;
     }

@@ -13,7 +13,7 @@ class LiveTvInfo extends \EmbyClient\Model
     /** @var string[] */
     protected array $enabledUsers;
 
-    public function getIsEnabled(): bool
+    public function isEnabled(): bool
     {
         return $this->isEnabled;
     }

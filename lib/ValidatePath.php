@@ -17,7 +17,7 @@ class ValidatePath extends \EmbyClient\Model
         return $this->validateWriteable;
     }
 
-    public function getIsFile(): bool
+    public function isFile(): bool
     {
         return $this->isFile;
     }

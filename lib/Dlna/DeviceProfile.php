@@ -10,12 +10,12 @@ use EmbyClient\RefName;
 class DeviceProfile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'directPlayProfiles ' => DirectPlayProfile::class,
+        'directPlayProfiles'  => DirectPlayProfile::class,
         'transcodingProfiles' => TranscodingProfile::class,
-        'containerProfiles  ' => ContainerProfile::class,
-        'codecProfiles      ' => CodecProfile::class,
-        'responseProfiles   ' => ResponseProfile::class,
-        'subtitleProfiles   ' => SubtitleProfile::class,
+        'containerProfiles'   => ContainerProfile::class,
+        'codecProfiles'       => CodecProfile::class,
+        'responseProfiles'    => ResponseProfile::class,
+        'subtitleProfiles'    => SubtitleProfile::class,
     ];
 
     protected string $name;

@@ -100,6 +100,79 @@ class UserLibraryService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getLivetvProgramsById'                    => [
+            'id',
+        ],
+        'getVideosByIdAdditionalparts'             => [
+            'userId',
+            'id',
+        ],
+        'getUsersByUseridItemsLatest'              => [
+            'userId',
+            'limit',
+            'parentId',
+            'fields',
+            'includeItemTypes',
+            'mediaTypes',
+            'groupItems',
+            'enableImageTypes',
+            'enableUserData',
+            'imageTypeLimit',
+            'enableImages',
+            'isPlayed',
+            'isFolder',
+        ],
+        'getUsersByUseridItemsById'                => [
+            'userId',
+            'id',
+        ],
+        'getUsersByUseridItemsRoot'                => [
+            'userId',
+        ],
+        'postUsersByUseridFavoriteitemsById'       => [
+            'userId',
+            'id',
+        ],
+        'deleteUsersByUseridFavoriteitemsById'     => [
+            'userId',
+            'id',
+        ],
+        'getUsersByUseridItemsByIdSpecialfeatures' => [
+            'userId',
+            'id',
+        ],
+        'getUsersByUseridItemsByIdLocaltrailers'   => [
+            'userId',
+            'id',
+        ],
+        'getUsersByUseridItemsByIdIntros'          => [
+            'userId',
+            'id',
+        ],
+        'postUsersByUseridFavoriteitemsByIdDelete' => [
+            'userId',
+            'id',
+        ],
+        'postUsersByUseridItemsByIdRating'         => [
+            'userId',
+            'id',
+            'likes',
+        ],
+        'deleteUsersByUseridItemsByIdRating'       => [
+            'userId',
+            'id',
+        ],
+        'postUsersByUseridItemsByIdHidefromresume' => [
+            'userId',
+            'id',
+            'hide',
+        ],
+        'postUsersByUseridItemsByIdRatingDelete'   => [
+            'userId',
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Videos/{Id}/AdditionalParts'              => [
             'userId' => true,

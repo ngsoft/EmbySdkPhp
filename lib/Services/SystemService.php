@@ -88,6 +88,29 @@ class SystemService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getSystemReleasenotes'         => [],
+        'getSystemPing'                 => [],
+        'postSystemPing'                => [],
+        'getSystemWakeonlaninfo'        => [],
+        'getSystemInfo'                 => [],
+        'postSystemRestart'             => [],
+        'postSystemShutdown'            => [],
+        'getSystemEndpoint'             => [],
+        'getSystemReleasenotesVersions' => [],
+        'getSystemLogsQuery'            => [
+            'startIndex',
+            'limit',
+        ],
+        'getSystemLogsByName'           => [
+            'name',
+            'sanitize',
+        ],
+        'getSystemInfoPublic'           => [],
+        'getSystemLogsByNameLines'      => [
+            'name',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/System/Logs/Query'  => [
             'startIndex' => true,

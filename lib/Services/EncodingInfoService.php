@@ -28,6 +28,11 @@ class EncodingInfoService extends ApiService
             '\\EmbyClient\\Model\\Configuration\\CodecConfiguration',
         ],
     ];
+    protected static array $parameters       = [
+        'getEncodingTonemapoptions'             => [],
+        'getEncodingCodecinformationVideo'      => [],
+        'getEncodingCodecconfigurationDefaults' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

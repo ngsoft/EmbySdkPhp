@@ -46,6 +46,42 @@ class PlaylistService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postPlaylists'                                => [
+            'name',
+            'ids',
+            'mediaType',
+        ],
+        'getPlaylistsByIdItems'                        => [
+            'id',
+            'userId',
+            'fields',
+            'enableImageTypes',
+            'imageTypeLimit',
+            'enableUserData',
+            'enableImages',
+            'limit',
+            'startIndex',
+        ],
+        'postPlaylistsByIdItems'                       => [
+            'userId',
+            'ids',
+            'id',
+        ],
+        'deletePlaylistsByIdItems'                     => [
+            'id',
+            'entryIds',
+        ],
+        'postPlaylistsByIdItemsDelete'                 => [
+            'id',
+            'entryIds',
+        ],
+        'postPlaylistsByIdItemsByItemidMoveByNewindex' => [
+            'itemId',
+            'id',
+            'newIndex',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Playlists'                   => [
             'name'      => true,

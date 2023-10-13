@@ -26,6 +26,10 @@
     "psr/http-client": "^1.0",
     "tuupola/http-factory": "^1.4"
   },
+  "suggest": {
+    "guzzlehttp/guzzle": "Guzzle is a PHP HTTP client library",
+    "symfony/cache": "Provides extended PSR-6, PSR-16 (and tags) implementations"
+  },
   "autoload": {
     "psr-4": {
       "EmbyClient\\": "src/",
@@ -46,7 +50,13 @@
     "sort-packages": true
   },
   "scripts": {
+    "build": [
+      "@generate",
+      "@fix",
+      "@fix:src"
+    ],
     "fix": "php vendor/bin/php-cs-fixer fix lib",
+    "fix:src": "php vendor/bin/php-cs-fixer fix src/ApiClient.php",
     "generate": "php src/generator.php -f"
   }
 }

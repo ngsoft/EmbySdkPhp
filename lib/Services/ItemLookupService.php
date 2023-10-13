@@ -88,6 +88,29 @@ class ItemLookupService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getItemsByIdExternalidinfos'      => [
+            'id',
+        ],
+        'postItemsRemotesearchTrailer'     => [],
+        'postItemsRemotesearchBook'        => [],
+        'postItemsRemotesearchMovie'       => [],
+        'postItemsRemotesearchSeries'      => [],
+        'postItemsRemotesearchGame'        => [],
+        'postItemsRemotesearchBoxset'      => [],
+        'postItemsRemotesearchMusicvideo'  => [],
+        'postItemsRemotesearchPerson'      => [],
+        'postItemsRemotesearchMusicalbum'  => [],
+        'postItemsRemotesearchMusicartist' => [],
+        'getItemsRemotesearchImage'        => [
+            'imageUrl',
+            'providerName',
+        ],
+        'postItemsRemotesearchApplyById'   => [
+            'id',
+            'replaceAllImages',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Items/RemoteSearch/Image'      => [
             'imageUrl'     => true,

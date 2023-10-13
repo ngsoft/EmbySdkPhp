@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class AuthenticationResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'user       ' => \EmbyClient\Model\UserDto::class,
+        'user'        => \EmbyClient\Model\UserDto::class,
         'sessionInfo' => \EmbyClient\Model\Session\SessionInfo::class,
     ];
 

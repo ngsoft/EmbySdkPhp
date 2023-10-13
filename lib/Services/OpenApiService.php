@@ -34,6 +34,12 @@ class OpenApiService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getOpenapi'     => [],
+        'getOpenapiJson' => [],
+        'getSwagger'     => [],
+        'getSwaggerJson' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

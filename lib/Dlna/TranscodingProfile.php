@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class TranscodingProfile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type             ' => DlnaProfileType::class,
+        'type'              => DlnaProfileType::class,
         'transcodeSeekInfo' => TranscodeSeekInfo::class,
-        'context          ' => EncodingContext::class,
+        'context'           => EncodingContext::class,
     ];
 
     protected string $container;

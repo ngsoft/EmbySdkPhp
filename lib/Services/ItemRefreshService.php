@@ -16,6 +16,16 @@ class ItemRefreshService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postItemsByIdRefresh' => [
+            'recursive',
+            'id',
+            'metadataRefreshMode',
+            'imageRefreshMode',
+            'replaceAllMetadata',
+            'replaceAllImages',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Items/{Id}/Refresh' => [
             'recursive'           => true,

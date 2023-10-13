@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class ICodecDeviceInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'capabilities            ' => ICodecDeviceCapabilities::class,
-        'driverVersion           ' => \EmbyClient\Model\Version::class,
-        'apiVersion              ' => \EmbyClient\Model\Version::class,
+        'capabilities'             => ICodecDeviceCapabilities::class,
+        'driverVersion'            => \EmbyClient\Model\Version::class,
+        'apiVersion'               => \EmbyClient\Model\Version::class,
         'hardwareContextFramework' => \EmbyClient\Model\Emby\Media\Model\Enums\SecondaryFrameworks::class,
     ];
 

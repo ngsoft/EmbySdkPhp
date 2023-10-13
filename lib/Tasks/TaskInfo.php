@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class TaskInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'state              ' => TaskState::class,
+        'state'               => TaskState::class,
         'lastExecutionResult' => TaskResult::class,
-        'triggers           ' => TaskTriggerInfo::class,
+        'triggers'            => TaskTriggerInfo::class,
     ];
 
     protected string $name;
@@ -70,7 +70,7 @@ class TaskInfo extends \EmbyClient\Model
         return $this->category;
     }
 
-    public function getIsHidden(): bool
+    public function isHidden(): bool
     {
         return $this->isHidden;
     }

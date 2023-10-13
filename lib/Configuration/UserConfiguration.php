@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class UserConfiguration extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'subtitleMode ' => SubtitlePlaybackMode::class,
+        'subtitleMode'  => SubtitlePlaybackMode::class,
         'introSkipMode' => SegmentSkipMode::class,
     ];
 

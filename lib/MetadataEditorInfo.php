@@ -11,9 +11,9 @@ class MetadataEditorInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'parentalRatingOptions' => ParentalRating::class,
-        'countries            ' => Globalization\CountryInfo::class,
-        'cultures             ' => Globalization\CultureDto::class,
-        'externalIdInfos      ' => ExternalIdInfo::class,
+        'countries'             => Globalization\CountryInfo::class,
+        'cultures'              => Globalization\CultureDto::class,
+        'externalIdInfos'       => ExternalIdInfo::class,
     ];
 
     /** @var ParentalRating[] */

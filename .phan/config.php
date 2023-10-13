@@ -93,5 +93,6 @@ return [
         'PhanUnusedPublicMethodParameter',
         'PhanUnusedPublicNoOverrideMethodParameter',
         'PhanParamNameIndicatingUnusedInClosure',
+        'PhanTypeMismatchReturn',
     ],
 ];

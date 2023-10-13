@@ -34,6 +34,26 @@ class CollectionService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postCollections'                => [
+            'isLocked',
+            'name',
+            'parentId',
+            'ids',
+        ],
+        'postCollectionsByIdItems'       => [
+            'ids',
+            'id',
+        ],
+        'deleteCollectionsByIdItems'     => [
+            'ids',
+            'id',
+        ],
+        'postCollectionsByIdItemsDelete' => [
+            'ids',
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Collections'                   => [
             'isLocked' => true,

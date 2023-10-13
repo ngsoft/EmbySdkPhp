@@ -34,6 +34,28 @@ class RemoteImageService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getImagesRemote'                   => [
+            'imageUrl',
+        ],
+        'getItemsByIdRemoteimages'          => [
+            'id',
+            'type',
+            'providerName',
+            'includeAllLanguages',
+            'limit',
+            'startIndex',
+        ],
+        'getItemsByIdRemoteimagesProviders' => [
+            'id',
+        ],
+        'postItemsByIdRemoteimagesDownload' => [
+            'id',
+            'type',
+            'providerName',
+            'imageUrl',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Images/Remote'                    => [
             'imageUrl' => true,

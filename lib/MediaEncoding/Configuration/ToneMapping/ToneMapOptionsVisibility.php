@@ -30,12 +30,12 @@ class ToneMapOptionsVisibility extends \EmbyClient\Model
         return $this->showAdvanced;
     }
 
-    public function getIsSoftwareToneMappingAvailable(): bool
+    public function isSoftwareToneMappingAvailable(): bool
     {
         return $this->isSoftwareToneMappingAvailable;
     }
 
-    public function getIsAnyHardwareToneMappingAvailable(): bool
+    public function isAnyHardwareToneMappingAvailable(): bool
     {
         return $this->isAnyHardwareToneMappingAvailable;
     }
@@ -55,22 +55,22 @@ class ToneMapOptionsVisibility extends \EmbyClient\Model
         return $this->showVaapiOptions;
     }
 
-    public function getIsOpenClAvailable(): bool
+    public function isOpenClAvailable(): bool
     {
         return $this->isOpenClAvailable;
     }
 
-    public function getIsOpenClSuperTAvailable(): bool
+    public function isOpenClSuperTAvailable(): bool
     {
         return $this->isOpenClSuperTAvailable;
     }
 
-    public function getIsVaapiNativeAvailable(): bool
+    public function isVaapiNativeAvailable(): bool
     {
         return $this->isVaapiNativeAvailable;
     }
 
-    public function getIsQuickSyncNativeAvailable(): bool
+    public function isQuickSyncNativeAvailable(): bool
     {
         return $this->isQuickSyncNativeAvailable;
     }

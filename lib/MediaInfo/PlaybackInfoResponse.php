@@ -11,7 +11,7 @@ class PlaybackInfoResponse extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'mediaSources' => \EmbyClient\Model\MediaSourceInfo::class,
-        'errorCode   ' => \EmbyClient\Model\Dlna\PlaybackErrorCode::class,
+        'errorCode'    => \EmbyClient\Model\Dlna\PlaybackErrorCode::class,
     ];
 
     /** @var \EmbyClient\Model\MediaSourceInfo[] */

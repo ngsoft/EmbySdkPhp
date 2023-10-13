@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class CodecProfile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type           ' => CodecType::class,
-        'conditions     ' => ProfileCondition::class,
+        'type'            => CodecType::class,
+        'conditions'      => ProfileCondition::class,
         'applyConditions' => ProfileCondition::class,
     ];
 

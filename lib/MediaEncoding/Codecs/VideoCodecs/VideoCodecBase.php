@@ -10,14 +10,14 @@ use EmbyClient\RefName;
 class VideoCodecBase extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'codecDeviceInfo           ' => \EmbyClient\Model\MediaEncoding\Codecs\Common\Interfaces\ICodecDeviceInfo::class,
-        'codecKind                 ' => \EmbyClient\Model\Emby\Media\Model\Enums\CodecKinds::class,
-        'videoMediaType            ' => \EmbyClient\Model\Emby\Media\Model\Enums\VideoMediaTypes::class,
-        'maxBitRate                ' => \EmbyClient\Model\Emby\Media\Model\Types\BitRate::class,
-        'supportedColorFormats     ' => \EmbyClient\Model\Emby\Media\Model\Enums\ColorFormats::class,
+        'codecDeviceInfo'            => \EmbyClient\Model\MediaEncoding\Codecs\Common\Interfaces\ICodecDeviceInfo::class,
+        'codecKind'                  => \EmbyClient\Model\Emby\Media\Model\Enums\CodecKinds::class,
+        'videoMediaType'             => \EmbyClient\Model\Emby\Media\Model\Enums\VideoMediaTypes::class,
+        'maxBitRate'                 => \EmbyClient\Model\Emby\Media\Model\Types\BitRate::class,
+        'supportedColorFormats'      => \EmbyClient\Model\Emby\Media\Model\Enums\ColorFormats::class,
         'profileAndLevelInformation' => \EmbyClient\Model\Emby\Media\Model\Types\ProfileLevelInformation::class,
-        'direction                 ' => \EmbyClient\Model\Emby\Media\Model\Enums\CodecDirections::class,
-        'secondaryFramework        ' => \EmbyClient\Model\Emby\Media\Model\Enums\SecondaryFrameworks::class,
+        'direction'                  => \EmbyClient\Model\Emby\Media\Model\Enums\CodecDirections::class,
+        'secondaryFramework'         => \EmbyClient\Model\Emby\Media\Model\Enums\SecondaryFrameworks::class,
     ];
 
     protected \EmbyClient\Model\MediaEncoding\Codecs\Common\Interfaces\ICodecDeviceInfo $codecDeviceInfo;
@@ -153,7 +153,7 @@ class VideoCodecBase extends \EmbyClient\Model
         return $this->frameworkCodec;
     }
 
-    public function getIsHardwareCodec(): bool
+    public function isHardwareCodec(): bool
     {
         return $this->isHardwareCodec;
     }
@@ -173,7 +173,7 @@ class VideoCodecBase extends \EmbyClient\Model
         return $this->maxInstanceCount;
     }
 
-    public function getIsEnabledByDefault(): bool
+    public function isEnabledByDefault(): bool
     {
         return $this->isEnabledByDefault;
     }

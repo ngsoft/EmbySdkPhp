@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class AllThemeMediaResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'themeVideosResult    ' => ThemeMediaResult::class,
-        'themeSongsResult     ' => ThemeMediaResult::class,
+        'themeVideosResult'     => ThemeMediaResult::class,
+        'themeSongsResult'      => ThemeMediaResult::class,
         'soundtrackSongsResult' => ThemeMediaResult::class,
     ];
 

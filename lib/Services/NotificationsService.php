@@ -52,6 +52,34 @@ class NotificationsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getNotificationsTypes'           => [],
+        'getNotificationsServices'        => [],
+        'postNotificationsAdmin'          => [
+            'name',
+            'description',
+            'imageUrl',
+            'url',
+            'level',
+        ],
+        'getNotificationsByUserid'        => [
+            'userId',
+            'limit',
+            'startIndex',
+            'isRead',
+        ],
+        'getNotificationsByUseridSummary' => [
+            'userId',
+        ],
+        'postNotificationsByUseridRead'   => [
+            'userId',
+            'ids',
+        ],
+        'postNotificationsByUseridUnread' => [
+            'userId',
+            'ids',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Notifications/Admin'           => [
             'name'        => true,

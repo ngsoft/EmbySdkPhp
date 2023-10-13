@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class SystemInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'systemUpdateLevel     ' => Updates\PackageVersionClass::class,
+        'systemUpdateLevel'      => Updates\PackageVersionClass::class,
         'completedInstallations' => Updates\InstallationInfo::class,
     ];
 
@@ -71,7 +71,7 @@ class SystemInfo extends \EmbyClient\Model
         return $this->hasPendingRestart;
     }
 
-    public function getIsShuttingDown(): bool
+    public function isShuttingDown(): bool
     {
         return $this->isShuttingDown;
     }

@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class ResponseProfile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type      ' => DlnaProfileType::class,
+        'type'       => DlnaProfileType::class,
         'conditions' => ProfileCondition::class,
     ];
 

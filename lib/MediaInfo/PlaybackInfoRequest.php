@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class PlaybackInfoRequest extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'deviceProfile      ' => \EmbyClient\Model\Dlna\DeviceProfile::class,
+        'deviceProfile'       => \EmbyClient\Model\Dlna\DeviceProfile::class,
         'directPlayProtocols' => MediaProtocol::class,
     ];
 
@@ -116,7 +116,7 @@ class PlaybackInfoRequest extends \EmbyClient\Model
         return $this->allowAudioStreamCopy;
     }
 
-    public function getIsPlayback(): bool
+    public function isPlayback(): bool
     {
         return $this->isPlayback;
     }

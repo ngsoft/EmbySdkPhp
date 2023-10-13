@@ -52,6 +52,25 @@ class EnvironmentService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postEnvironmentValidatepath'           => [
+            'path',
+        ],
+        'getEnvironmentDefaultdirectorybrowser' => [],
+        'getEnvironmentDirectorycontents'       => [
+            'path',
+            'includeFiles',
+            'includeDirectories',
+        ],
+        'getEnvironmentNetworkshares'           => [
+            'path',
+        ],
+        'getEnvironmentDrives'                  => [],
+        'getEnvironmentNetworkdevices'          => [],
+        'getEnvironmentParentpath'              => [
+            'path',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Environment/ValidatePath'      => [
             'path' => true,

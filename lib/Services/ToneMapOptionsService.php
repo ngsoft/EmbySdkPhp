@@ -34,6 +34,12 @@ class ToneMapOptionsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getEncodingFulltonemapoptions'    => [],
+        'postEncodingFulltonemapoptions'   => [],
+        'getEncodingPublictonemapoptions'  => [],
+        'postEncodingPublictonemapoptions' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class SyncJobCreationResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'job     ' => \EmbyClient\Model\Sync\SyncJob::class,
+        'job'      => \EmbyClient\Model\Sync\SyncJob::class,
         'jobItems' => SyncJobItem::class,
     ];
 

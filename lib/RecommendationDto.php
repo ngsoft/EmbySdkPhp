@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class RecommendationDto extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'items             ' => BaseItemDto::class,
+        'items'              => BaseItemDto::class,
         'recommendationType' => RecommendationType::class,
     ];
 

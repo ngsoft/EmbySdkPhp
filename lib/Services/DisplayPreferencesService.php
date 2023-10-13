@@ -22,6 +22,17 @@ class DisplayPreferencesService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getDisplaypreferencesById'                    => [
+            'id',
+            'userId',
+            'client',
+        ],
+        'postDisplaypreferencesByDisplaypreferencesid' => [
+            'displayPreferencesId',
+            'userId',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/DisplayPreferences/{Id}'                   => [
             'userId' => true,

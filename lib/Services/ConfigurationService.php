@@ -34,6 +34,16 @@ class ConfigurationService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getSystemConfiguration'       => [],
+        'postSystemConfiguration'      => [],
+        'getSystemConfigurationByKey'  => [
+            'key',
+        ],
+        'postSystemConfigurationByKey' => [
+            'key',
+        ],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/System/Configuration/{Key}' => [

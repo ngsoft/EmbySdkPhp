@@ -15,12 +15,12 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
     public function __serialize(): array
     {
-        return array_map(fn ($prop) => $this->{$prop}, $this->getPropertyList());
+        return array_map(fn ($prop) => $this->{$prop}, array_keys($this->getPropertyList()));
     }
 
     public function __unserialize(array $data): void
     {
-        foreach ($this->getPropertyList() as $index => $prop)
+        foreach (array_keys($this->getPropertyList()) as $index => $prop)
         {
             $this->{$prop} = $data[$index];
         }
@@ -30,7 +30,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
     {
         $result = [];
 
-        foreach ($this->getPropertyList() as $prop)
+        foreach (array_keys($this->getPropertyList()) as $prop)
         {
             $result[$prop] = $this->{$prop};
         }
@@ -48,19 +48,26 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
         {
             $prop = lcfirst($prop);
 
-            if (in_array($prop, $properties))
+            if (in_array($prop, array_keys($properties)))
             {
+                $expectedType      = $properties[$prop];
+
                 if (is_string($value))
                 {
-                    try
+                    if ('string' !== $expectedType)
                     {
-                        $value = json_decode($value, true, flags: JSON_THROW_ON_ERROR);
-                    } catch (\JsonException)
-                    {
+                        try
+                        {
+                            $value = json_decode($value, true, flags: JSON_THROW_ON_ERROR);
+                        } catch (\JsonException)
+                        {
+                        }
                     }
                 }
 
                 $mappedClass       = static::$mapping[$prop] ?? null;
+
+                var_dump($mappedClass, $prop, static::$mapping);
 
                 if (isset($mappedClass))
                 {
@@ -147,7 +154,7 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
                     {
                         continue;
                     }
-                    $cache[$className][] = $reflectionProperty->getName();
+                    $cache[$className][$reflectionProperty->getName()] = (string) $reflectionProperty->getType();
                 }
 
                 Cache::set($key, $cache);

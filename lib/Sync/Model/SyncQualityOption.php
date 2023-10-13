@@ -30,12 +30,12 @@ class SyncQualityOption extends \EmbyClient\Model
         return $this->id;
     }
 
-    public function getIsDefault(): bool
+    public function isDefault(): bool
     {
         return $this->isDefault;
     }
 
-    public function getIsOriginalQuality(): bool
+    public function isOriginalQuality(): bool
     {
         return $this->isOriginalQuality;
     }

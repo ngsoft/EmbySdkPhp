@@ -13,12 +13,12 @@ class UserLinkResult extends \EmbyClient\Model
     protected bool $isNewUserInvitation;
     protected string $guestDisplayName;
 
-    public function getIsPending(): bool
+    public function isPending(): bool
     {
         return $this->isPending;
     }
 
-    public function getIsNewUserInvitation(): bool
+    public function isNewUserInvitation(): bool
     {
         return $this->isNewUserInvitation;
     }

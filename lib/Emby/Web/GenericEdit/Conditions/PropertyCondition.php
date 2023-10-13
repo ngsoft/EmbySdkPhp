@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class PropertyCondition extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'conditionType  ' => PropertyConditionType::class,
+        'conditionType'   => PropertyConditionType::class,
         'simpleCondition' => \EmbyClient\Model\Attributes\SimpleCondition::class,
-        'valueCondition ' => \EmbyClient\Model\Attributes\ValueCondition::class,
+        'valueCondition'  => \EmbyClient\Model\Attributes\ValueCondition::class,
     ];
 
     protected string $affectedPropertyId;

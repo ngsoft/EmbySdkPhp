@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class LiveStreamRequest extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'deviceProfile      ' => \EmbyClient\Model\Dlna\DeviceProfile::class,
+        'deviceProfile'       => \EmbyClient\Model\Dlna\DeviceProfile::class,
         'directPlayProtocols' => MediaProtocol::class,
     ];
 

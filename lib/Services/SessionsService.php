@@ -130,6 +130,87 @@ class SessionsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getSessions'                         => [
+            'controllableByUserId',
+            'deviceId',
+            'id',
+        ],
+        'getAuthProviders'                    => [],
+        'getAuthKeys'                         => [
+            'startIndex',
+            'limit',
+        ],
+        'postAuthKeys'                        => [
+            'app',
+        ],
+        'getSessionsPlayqueue'                => [
+            'id',
+            'deviceId',
+        ],
+        'postSessionsLogout'                  => [],
+        'postSessionsCapabilities'            => [
+            'id',
+            'playableMediaTypes',
+            'supportedCommands',
+            'supportsMediaControl',
+            'supportsSync',
+        ],
+        'deleteAuthKeysByKey'                 => [
+            'key',
+        ],
+        'postSessionsByIdViewing'             => [
+            'id',
+            'itemType',
+            'itemId',
+            'itemName',
+        ],
+        'postSessionsByIdMessage'             => [
+            'id',
+            'text',
+            'header',
+            'timeoutMs',
+        ],
+        'postSessionsByIdPlaying'             => [
+            'id',
+            'itemIds',
+            'playCommand',
+            'startPositionTicks',
+        ],
+        'postSessionsByIdCommand'             => [
+            'id',
+        ],
+        'postSessionsCapabilitiesFull'        => [
+            'id',
+        ],
+        'postAuthKeysByKeyDelete'             => [
+            'key',
+        ],
+        'postSessionsByIdPlayingByCommand'    => [
+            'id',
+            'command',
+        ],
+        'postSessionsByIdSystemByCommand'     => [
+            'id',
+            'command',
+        ],
+        'postSessionsByIdCommandByCommand'    => [
+            'id',
+            'command',
+        ],
+        'postSessionsByIdUsersByUserid'       => [
+            'id',
+            'userId',
+        ],
+        'deleteSessionsByIdUsersByUserid'     => [
+            'id',
+            'userId',
+        ],
+        'postSessionsByIdUsersByUseridDelete' => [
+            'id',
+            'userId',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Sessions'                   => [
             'controllableByUserId' => true,

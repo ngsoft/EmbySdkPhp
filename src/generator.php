@@ -211,7 +211,17 @@ function MakeModel(string $name, array $data, array $props): void
             $body[] = '     */';
         }
 
-        $body[]   = sprintf('    public function get%s(): %s', ucfirst($prop), $isList ? 'array' : $baseType);
+        $prefix   = 'get';
+
+        $suffix   = ucfirst($prop);
+
+        if (str_starts_with($prop, 'is') && ! $isList && 'bool' === $baseType)
+        {
+            $prefix = '';
+            $suffix = $prop;
+        }
+
+        $body[]   = sprintf('    public function %s%s(): %s', $prefix, $suffix, $isList ? 'array' : $baseType);
         $body[]   = '    {';
         $body[]   = sprintf('        return $this->%s;', $prop);
         $body[]   = '    }';
@@ -223,7 +233,7 @@ function MakeModel(string $name, array $data, array $props): void
 
         foreach ($mapping as $keyName => $className)
         {
-            $template[] = sprintf('        \'%s\' => %s::class,', str_pad($keyName, $pad), $className);
+            $template[] = sprintf('        %s => %s::class,', str_pad("'{$keyName}'", $pad + 2), $className);
         }
 
         $template[] = '    ];';
@@ -322,7 +332,7 @@ function MakeService(Map $service): void
     ];
 
     // methods
-    $header       = $body = $queryParameters = $pathParameters = $headerParameters = $endpoints = [];
+    $header       = $body = $queryParameters = $pathParameters = $headerParameters = $endpoints = $parameters = [];
 
     foreach ($service as $endpoint => $data)
     {
@@ -461,6 +471,8 @@ function MakeService(Map $service): void
                 return -1;
             });
 
+            $parameters[$fn]           = array_keys($params);
+
             foreach ($params as $prop => $types)
             {
                 $prop        = implode('|', $types) . ' $' . $prop;
@@ -520,6 +532,10 @@ function MakeService(Map $service): void
     $header[]     = sprintf(
         '    protected static array $endpoints = %s;',
         VarExporter::export($endpoints)
+    );
+    $header[]     = sprintf(
+        '    protected static array $parameters = %s;',
+        VarExporter::export($parameters)
     );
     $header[]     = sprintf(
         '    protected static array $queryParameters = %s;',

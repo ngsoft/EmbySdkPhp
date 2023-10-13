@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class ItemFileInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type     ' => ItemFileType::class,
+        'type'      => ItemFileType::class,
         'imageType' => \EmbyClient\Model\ImageType::class,
     ];
 

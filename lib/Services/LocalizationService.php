@@ -34,6 +34,12 @@ class LocalizationService extends ApiService
             '\\EmbyClient\\Model\\Globalization\\CultureDto',
         ],
     ];
+    protected static array $parameters       = [
+        'getLocalizationParentalratings' => [],
+        'getLocalizationOptions'         => [],
+        'getLocalizationCountries'       => [],
+        'getLocalizationCultures'        => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];
