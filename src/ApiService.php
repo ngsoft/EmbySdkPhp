@@ -11,6 +11,12 @@ abstract class ApiService
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];
 
+    public function __construct(
+        protected ?Connection $connection = null
+    ) {
+        $this->connection ??= Connection::getActiveConnection();
+    }
+
     protected function makeApiCall(string $fn, ...$args)
     {
     }

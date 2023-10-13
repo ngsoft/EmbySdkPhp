@@ -12,6 +12,8 @@ class Connection
     public const DEFAULT_EMBY_PORT    = 8096;
     public const DEFAULT_HEADER_TOKEN = 'X-Emby-Token';
 
+    protected static ?self $instance  = null;
+
     /**
      * Server test connection status.
      */
@@ -21,16 +23,26 @@ class Connection
         protected string $server,
         protected string $token
     ) {
+        self::$instance = $this;
     }
 
     public function __unserialize(array $data): void
     {
         [$this->server, $this->token] = $data;
+        self::$instance               = $this;
     }
 
     public function __serialize(): array
     {
         return [$this->server, $this->token];
+    }
+
+    /**
+     * Returns Last Connection created.
+     */
+    public static function getActiveConnection(): ?Connection
+    {
+        return self::$instance;
     }
 
     public function getServer(): string
