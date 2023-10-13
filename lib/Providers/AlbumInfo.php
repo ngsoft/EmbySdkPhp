@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class AlbumInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'songInfos   ' => SongInfo::class,
-        'providerIds ' => \EmbyClient\Model\ProviderIdDictionary::class,
+        'songInfos'    => SongInfo::class,
+        'providerIds'  => \EmbyClient\Model\ProviderIdDictionary::class,
         'premiereDate' => \DateTimeImmutable::class,
     ];
 
@@ -86,7 +86,7 @@ class AlbumInfo extends \EmbyClient\Model
         return $this->premiereDate;
     }
 
-    public function getIsAutomated(): bool
+    public function isAutomated(): bool
     {
         return $this->isAutomated;
     }

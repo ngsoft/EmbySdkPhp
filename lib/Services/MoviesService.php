@@ -16,6 +16,18 @@ class MoviesService extends ApiService
             '\\EmbyClient\\Model\\RecommendationDto',
         ],
     ];
+    protected static array $parameters       = [
+        'getMoviesRecommendations' => [
+            'categoryLimit',
+            'itemLimit',
+            'userId',
+            'parentId',
+            'enableImageTypes',
+            'imageTypeLimit',
+            'enableUserData',
+            'enableImages',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Movies/Recommendations' => [
             'categoryLimit'    => true,

@@ -58,6 +58,33 @@ class DeviceService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getDevices'               => [],
+        'deleteDevices'            => [
+            'id',
+        ],
+        'getDevicesOptions'        => [
+            'id',
+        ],
+        'postDevicesOptions'       => [
+            'id',
+        ],
+        'getDevicesInfo'           => [
+            'id',
+        ],
+        'getDevicesCamerauploads'  => [
+            'deviceId',
+        ],
+        'postDevicesCamerauploads' => [
+            'deviceId',
+            'album',
+            'name',
+            'id',
+        ],
+        'postDevicesDelete'        => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Devices'               => [
             'id' => true,

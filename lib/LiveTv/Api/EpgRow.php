@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class EpgRow extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'channel ' => \EmbyClient\Model\BaseItemDto::class,
+        'channel'  => \EmbyClient\Model\BaseItemDto::class,
         'programs' => \EmbyClient\Model\BaseItemDto::class,
     ];
 

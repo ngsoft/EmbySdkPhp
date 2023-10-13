@@ -28,6 +28,11 @@ class DashboardService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getWebConfigurationpage'  => [],
+        'getWebConfigurationpages' => [],
+        'getWebStrings'            => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

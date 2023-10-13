@@ -46,6 +46,24 @@ class PluginService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getPlugins'                   => [],
+        'deletePluginsById'            => [
+            'id',
+        ],
+        'getPluginsByIdThumb'          => [
+            'id',
+        ],
+        'getPluginsByIdConfiguration'  => [
+            'id',
+        ],
+        'postPluginsByIdConfiguration' => [
+            'id',
+        ],
+        'postPluginsByIdDelete'        => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/Plugins/{Id}'               => [

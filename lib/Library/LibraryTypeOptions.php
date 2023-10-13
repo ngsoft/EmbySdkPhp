@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class LibraryTypeOptions extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'metadataFetchers   ' => LibraryOptionInfo::class,
-        'imageFetchers      ' => LibraryOptionInfo::class,
+        'metadataFetchers'    => LibraryOptionInfo::class,
+        'imageFetchers'       => LibraryOptionInfo::class,
         'supportedImageTypes' => \EmbyClient\Model\ImageType::class,
         'defaultImageOptions' => \EmbyClient\Model\Configuration\ImageOption::class,
     ];

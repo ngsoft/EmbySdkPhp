@@ -10,13 +10,13 @@ use EmbyClient\RefName;
 class SeriesTimerInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'startDate  ' => \DateTimeImmutable::class,
-        'endDate    ' => \DateTimeImmutable::class,
-        'keepUntil  ' => KeepUntil::class,
-        'days       ' => \EmbyClient\Model\DayOfWeek::class,
+        'startDate'   => \DateTimeImmutable::class,
+        'endDate'     => \DateTimeImmutable::class,
+        'keepUntil'   => KeepUntil::class,
+        'days'        => \EmbyClient\Model\DayOfWeek::class,
         'providerIds' => \EmbyClient\Model\ProviderIdDictionary::class,
-        'keywords   ' => KeywordInfo::class,
-        'timerType  ' => TimerType::class,
+        'keywords'    => KeywordInfo::class,
+        'timerType'   => TimerType::class,
     ];
 
     protected string $id;
@@ -144,12 +144,12 @@ class SeriesTimerInfo extends \EmbyClient\Model
         return $this->postPaddingSeconds;
     }
 
-    public function getIsPrePaddingRequired(): bool
+    public function isPrePaddingRequired(): bool
     {
         return $this->isPrePaddingRequired;
     }
 
-    public function getIsPostPaddingRequired(): bool
+    public function isPostPaddingRequired(): bool
     {
         return $this->isPostPaddingRequired;
     }

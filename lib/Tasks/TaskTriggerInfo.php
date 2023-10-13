@@ -11,7 +11,7 @@ class TaskTriggerInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'systemEvent' => SystemEvent::class,
-        'dayOfWeek  ' => \EmbyClient\Model\DayOfWeek::class,
+        'dayOfWeek'   => \EmbyClient\Model\DayOfWeek::class,
     ];
 
     protected string $type;

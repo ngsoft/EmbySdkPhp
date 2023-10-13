@@ -11,7 +11,7 @@ class ProfileCondition extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'condition' => ProfileConditionType::class,
-        'property ' => ProfileConditionValue::class,
+        'property'  => ProfileConditionValue::class,
     ];
 
     protected ProfileConditionType $condition;
@@ -34,7 +34,7 @@ class ProfileCondition extends \EmbyClient\Model
         return $this->value;
     }
 
-    public function getIsRequired(): bool
+    public function isRequired(): bool
     {
         return $this->isRequired;
     }

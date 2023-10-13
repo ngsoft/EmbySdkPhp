@@ -19,7 +19,7 @@ class GetPrograms extends \EmbyClient\Model
     protected string $showingsFromProgramId;
     protected bool $groupProgramsBySeries;
 
-    public function getIsAiring(): bool
+    public function isAiring(): bool
     {
         return $this->isAiring;
     }

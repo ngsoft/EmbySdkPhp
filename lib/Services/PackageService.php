@@ -46,6 +46,33 @@ class PackageService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getPackages'                      => [
+            'packageType',
+            'targetSystems',
+            'isAdult',
+            'isPremium',
+        ],
+        'getPackagesUpdates'               => [
+            'packageType',
+        ],
+        'getPackagesByName'                => [
+            'name',
+            'assemblyGuid',
+        ],
+        'postPackagesInstalledByName'      => [
+            'name',
+            'assemblyGuid',
+            'version',
+            'updateClass',
+        ],
+        'deletePackagesInstallingById'     => [
+            'id',
+        ],
+        'postPackagesInstallingByIdDelete' => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Packages'                  => [
             'packageType'   => true,

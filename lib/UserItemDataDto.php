@@ -50,7 +50,7 @@ class UserItemDataDto extends \EmbyClient\Model
         return $this->playCount;
     }
 
-    public function getIsFavorite(): bool
+    public function isFavorite(): bool
     {
         return $this->isFavorite;
     }

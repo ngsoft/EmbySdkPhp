@@ -11,7 +11,7 @@ class ProfileLevelInformation extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'profile' => ProfileInformation::class,
-        'level  ' => LevelInformation::class,
+        'level'   => LevelInformation::class,
     ];
 
     protected ProfileInformation $profile;

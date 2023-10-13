@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class MediaStream extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type                ' => MediaStreamType::class,
-        'deliveryMethod      ' => Dlna\SubtitleDeliveryMethod::class,
-        'protocol            ' => MediaInfo\MediaProtocol::class,
+        'type'                 => MediaStreamType::class,
+        'deliveryMethod'       => Dlna\SubtitleDeliveryMethod::class,
+        'protocol'             => MediaInfo\MediaProtocol::class,
         'subtitleLocationType' => SubtitleLocationType::class,
     ];
 
@@ -149,12 +149,12 @@ class MediaStream extends \EmbyClient\Model
         return $this->nalLengthSize;
     }
 
-    public function getIsInterlaced(): bool
+    public function isInterlaced(): bool
     {
         return $this->isInterlaced;
     }
 
-    public function getIsAVC(): bool
+    public function isAVC(): bool
     {
         return $this->isAVC;
     }
@@ -194,12 +194,12 @@ class MediaStream extends \EmbyClient\Model
         return $this->sampleRate;
     }
 
-    public function getIsDefault(): bool
+    public function isDefault(): bool
     {
         return $this->isDefault;
     }
 
-    public function getIsForced(): bool
+    public function isForced(): bool
     {
         return $this->isForced;
     }
@@ -244,7 +244,7 @@ class MediaStream extends \EmbyClient\Model
         return $this->index;
     }
 
-    public function getIsExternal(): bool
+    public function isExternal(): bool
     {
         return $this->isExternal;
     }
@@ -259,12 +259,12 @@ class MediaStream extends \EmbyClient\Model
         return $this->deliveryUrl;
     }
 
-    public function getIsExternalUrl(): bool
+    public function isExternalUrl(): bool
     {
         return $this->isExternalUrl;
     }
 
-    public function getIsTextSubtitleStream(): bool
+    public function isTextSubtitleStream(): bool
     {
         return $this->isTextSubtitleStream;
     }
@@ -294,7 +294,7 @@ class MediaStream extends \EmbyClient\Model
         return $this->level;
     }
 
-    public function getIsAnamorphic(): bool
+    public function isAnamorphic(): bool
     {
         return $this->isAnamorphic;
     }
@@ -319,7 +319,7 @@ class MediaStream extends \EmbyClient\Model
         return $this->mimeType;
     }
 
-    public function getIsClosedCaptions(): bool
+    public function isClosedCaptions(): bool
     {
         return $this->isClosedCaptions;
     }

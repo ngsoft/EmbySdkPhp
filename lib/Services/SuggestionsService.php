@@ -16,6 +16,11 @@ class SuggestionsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getUsersByUseridSuggestions' => [
+            'userId',
+        ],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/Users/{UserId}/Suggestions' => [

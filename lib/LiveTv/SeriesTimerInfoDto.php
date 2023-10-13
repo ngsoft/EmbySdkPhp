@@ -10,11 +10,11 @@ use EmbyClient\RefName;
 class SeriesTimerInfoDto extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'days     ' => \EmbyClient\Model\DayOfWeek::class,
-        'keywords ' => KeywordInfo::class,
+        'days'      => \EmbyClient\Model\DayOfWeek::class,
+        'keywords'  => KeywordInfo::class,
         'timerType' => TimerType::class,
         'startDate' => \DateTimeImmutable::class,
-        'endDate  ' => \DateTimeImmutable::class,
+        'endDate'   => \DateTimeImmutable::class,
         'keepUntil' => KeepUntil::class,
     ];
 
@@ -217,7 +217,7 @@ class SeriesTimerInfoDto extends \EmbyClient\Model
         return $this->postPaddingSeconds;
     }
 
-    public function getIsPrePaddingRequired(): bool
+    public function isPrePaddingRequired(): bool
     {
         return $this->isPrePaddingRequired;
     }
@@ -235,7 +235,7 @@ class SeriesTimerInfoDto extends \EmbyClient\Model
         return $this->parentBackdropImageTags;
     }
 
-    public function getIsPostPaddingRequired(): bool
+    public function isPostPaddingRequired(): bool
     {
         return $this->isPostPaddingRequired;
     }

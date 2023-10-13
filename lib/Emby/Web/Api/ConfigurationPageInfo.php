@@ -11,7 +11,7 @@ class ConfigurationPageInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'configurationPageType' => \EmbyClient\Model\Plugins\ConfigurationPageType::class,
-        'plugin               ' => \EmbyClient\Model\Common\Plugins\IPlugin::class,
+        'plugin'                => \EmbyClient\Model\Common\Plugins\IPlugin::class,
     ];
 
     protected string $name;

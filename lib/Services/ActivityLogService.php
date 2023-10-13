@@ -16,6 +16,13 @@ class ActivityLogService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getSystemActivitylogEntries' => [
+            'minDate',
+            'limit',
+            'startIndex',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/System/ActivityLog/Entries' => [
             'startIndex' => true,

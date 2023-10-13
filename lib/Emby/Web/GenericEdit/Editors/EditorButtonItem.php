@@ -43,12 +43,12 @@ class EditorButtonItem extends \EmbyClient\Model
         return $this->allowEmpty;
     }
 
-    public function getIsReadOnly(): bool
+    public function isReadOnly(): bool
     {
         return $this->isReadOnly;
     }
 
-    public function getIsAdvanced(): bool
+    public function isAdvanced(): bool
     {
         return $this->isAdvanced;
     }

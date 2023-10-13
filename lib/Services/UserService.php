@@ -118,6 +118,64 @@ class UserService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getUsersPublic'                                => [],
+        'getUsersQuery'                                 => [
+            'startIndex',
+            'nameStartsWithOrGreater',
+            'limit',
+            'isDisabled',
+            'isHidden',
+        ],
+        'getUsersPrefixes'                              => [
+            'startIndex',
+            'nameStartsWithOrGreater',
+            'limit',
+            'isDisabled',
+            'isHidden',
+        ],
+        'getUsersById'                                  => [
+            'id',
+        ],
+        'postUsersById'                                 => [
+            'id',
+        ],
+        'deleteUsersById'                               => [
+            'id',
+        ],
+        'postUsersAuthenticatebyname'                   => [
+            'xEmbyAuthorization',
+        ],
+        'postUsersNew'                                  => [],
+        'postUsersForgotpassword'                       => [],
+        'postUsersByIdDelete'                           => [
+            'id',
+        ],
+        'postUsersByIdAuthenticate'                     => [
+            'id',
+        ],
+        'postUsersByIdPassword'                         => [
+            'id',
+        ],
+        'postUsersByIdEasypassword'                     => [
+            'id',
+        ],
+        'postUsersForgotpasswordPin'                    => [],
+        'postUsersByIdConfiguration'                    => [
+            'id',
+        ],
+        'postUsersByIdPolicy'                           => [
+            'id',
+        ],
+        'deleteUsersByIdTrackselectionsByTracktype'     => [
+            'id',
+            'trackType',
+        ],
+        'postUsersByIdTrackselectionsByTracktypeDelete' => [
+            'id',
+            'trackType',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Users/Query'    => [
             'isHidden'                => true,

@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class LevelInformation extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'maxBitRate     ' => BitRate::class,
+        'maxBitRate'      => BitRate::class,
         'resolutionRates' => ResolutionWithRate::class,
     ];
 

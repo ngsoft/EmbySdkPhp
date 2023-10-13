@@ -77,12 +77,12 @@ class RemoteSubtitleInfo extends \EmbyClient\Model
         return $this->downloadCount;
     }
 
-    public function getIsHashMatch(): bool
+    public function isHashMatch(): bool
     {
         return $this->isHashMatch;
     }
 
-    public function getIsForced(): bool
+    public function isForced(): bool
     {
         return $this->isForced;
     }

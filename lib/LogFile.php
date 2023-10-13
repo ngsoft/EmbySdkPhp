@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class LogFile extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'dateCreated ' => \DateTimeImmutable::class,
+        'dateCreated'  => \DateTimeImmutable::class,
         'dateModified' => \DateTimeImmutable::class,
     ];
 

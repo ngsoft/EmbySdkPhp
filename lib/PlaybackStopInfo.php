@@ -11,7 +11,7 @@ class PlaybackStopInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'nowPlayingQueue' => QueueItem::class,
-        'item           ' => BaseItemDto::class,
+        'item'            => BaseItemDto::class,
     ];
 
     /** @var QueueItem[] */

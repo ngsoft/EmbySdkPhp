@@ -11,8 +11,8 @@ class PackageInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'targetSystem' => PackageTargetSystem::class,
-        'expDate     ' => \DateTimeImmutable::class,
-        'versions    ' => PackageVersionInfo::class,
+        'expDate'      => \DateTimeImmutable::class,
+        'versions'     => PackageVersionInfo::class,
     ];
 
     protected string $id;
@@ -63,7 +63,7 @@ class PackageInfo extends \EmbyClient\Model
         return $this->overview;
     }
 
-    public function getIsPremium(): bool
+    public function isPremium(): bool
     {
         return $this->isPremium;
     }
@@ -148,7 +148,7 @@ class PackageInfo extends \EmbyClient\Model
         return $this->avgRating;
     }
 
-    public function getIsRegistered(): bool
+    public function isRegistered(): bool
     {
         return $this->isRegistered;
     }

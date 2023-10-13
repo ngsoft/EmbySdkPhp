@@ -16,6 +16,11 @@ class GamesService extends ApiService
             '\\EmbyClient\\Model\\GameSystemSummary',
         ],
     ];
+    protected static array $parameters       = [
+        'getGamesSystemsummaries' => [
+            'userId',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Games/SystemSummaries' => [
             'userId' => true,

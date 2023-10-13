@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class MusicVideoInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'providerIds ' => \EmbyClient\Model\ProviderIdDictionary::class,
+        'providerIds'  => \EmbyClient\Model\ProviderIdDictionary::class,
         'premiereDate' => \DateTimeImmutable::class,
     ];
 
@@ -75,7 +75,7 @@ class MusicVideoInfo extends \EmbyClient\Model
         return $this->premiereDate;
     }
 
-    public function getIsAutomated(): bool
+    public function isAutomated(): bool
     {
         return $this->isAutomated;
     }

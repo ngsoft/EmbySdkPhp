@@ -22,6 +22,10 @@ class SubtitleOptionsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getEncodingSubtitleoptions'  => [],
+        'postEncodingSubtitleoptions' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

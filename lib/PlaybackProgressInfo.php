@@ -10,11 +10,11 @@ use EmbyClient\RefName;
 class PlaybackProgressInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'item           ' => BaseItemDto::class,
+        'item'            => BaseItemDto::class,
         'nowPlayingQueue' => QueueItem::class,
-        'eventName      ' => ProgressEvent::class,
-        'playMethod     ' => PlayMethod::class,
-        'repeatMode     ' => RepeatMode::class,
+        'eventName'       => ProgressEvent::class,
+        'playMethod'      => PlayMethod::class,
+        'repeatMode'      => RepeatMode::class,
     ];
 
     protected bool $canSeek;
@@ -95,7 +95,7 @@ class PlaybackProgressInfo extends \EmbyClient\Model
         return $this->subtitleStreamIndex;
     }
 
-    public function getIsPaused(): bool
+    public function isPaused(): bool
     {
         return $this->isPaused;
     }
@@ -110,7 +110,7 @@ class PlaybackProgressInfo extends \EmbyClient\Model
         return $this->playlistLength;
     }
 
-    public function getIsMuted(): bool
+    public function isMuted(): bool
     {
         return $this->isMuted;
     }

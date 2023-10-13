@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class LibraryOptions extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'pathInfos  ' => MediaPathInfo::class,
+        'pathInfos'   => MediaPathInfo::class,
         'typeOptions' => TypeOptions::class,
     ];
 

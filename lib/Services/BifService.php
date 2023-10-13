@@ -22,6 +22,16 @@ class BifService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getItemsByIdThumbnailset' => [
+            'width',
+            'id',
+        ],
+        'getVideosByIdIndexBif'    => [
+            'width',
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Items/{Id}/ThumbnailSet' => [
             'width' => true,

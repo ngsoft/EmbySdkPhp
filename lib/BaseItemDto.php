@@ -10,32 +10,32 @@ use EmbyClient\RefName;
 class BaseItemDto extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'dateCreated     ' => \DateTimeImmutable::class,
-        'video3DFormat   ' => Video3DFormat::class,
-        'premiereDate    ' => \DateTimeImmutable::class,
-        'externalUrls    ' => ExternalUrl::class,
-        'mediaSources    ' => MediaSourceInfo::class,
-        'playAccess      ' => Library\PlayAccess::class,
-        'remoteTrailers  ' => MediaUrl::class,
-        'providerIds     ' => ProviderIdDictionary::class,
-        'people          ' => BaseItemPerson::class,
-        'studios         ' => NameLongIdPair::class,
-        'genreItems      ' => NameLongIdPair::class,
-        'tagItems        ' => NameLongIdPair::class,
-        'userData        ' => UserItemDataDto::class,
-        'airDays         ' => DayOfWeek::class,
-        'artistItems     ' => NameIdPair::class,
-        'composers       ' => NameIdPair::class,
-        'albumArtists    ' => NameIdPair::class,
-        'mediaStreams    ' => MediaStream::class,
-        'chapters        ' => ChapterInfo::class,
-        'locationType    ' => LocationType::class,
-        'endDate         ' => \DateTimeImmutable::class,
-        'lockedFields    ' => MetadataFields::class,
+        'dateCreated'      => \DateTimeImmutable::class,
+        'video3DFormat'    => Video3DFormat::class,
+        'premiereDate'     => \DateTimeImmutable::class,
+        'externalUrls'     => ExternalUrl::class,
+        'mediaSources'     => MediaSourceInfo::class,
+        'playAccess'       => Library\PlayAccess::class,
+        'remoteTrailers'   => MediaUrl::class,
+        'providerIds'      => ProviderIdDictionary::class,
+        'people'           => BaseItemPerson::class,
+        'studios'          => NameLongIdPair::class,
+        'genreItems'       => NameLongIdPair::class,
+        'tagItems'         => NameLongIdPair::class,
+        'userData'         => UserItemDataDto::class,
+        'airDays'          => DayOfWeek::class,
+        'artistItems'      => NameIdPair::class,
+        'composers'        => NameIdPair::class,
+        'albumArtists'     => NameIdPair::class,
+        'mediaStreams'     => MediaStream::class,
+        'chapters'         => ChapterInfo::class,
+        'locationType'     => LocationType::class,
+        'endDate'          => \DateTimeImmutable::class,
+        'lockedFields'     => MetadataFields::class,
         'imageOrientation' => Drawing\ImageOrientation::class,
-        'startDate       ' => \DateTimeImmutable::class,
-        'timerType       ' => LiveTv\TimerType::class,
-        'currentProgram  ' => BaseItemDto::class,
+        'startDate'        => \DateTimeImmutable::class,
+        'timerType'        => LiveTv\TimerType::class,
+        'currentProgram'   => BaseItemDto::class,
     ];
 
     protected string $name;
@@ -504,7 +504,7 @@ class BaseItemDto extends \EmbyClient\Model
         return $this->providerIds;
     }
 
-    public function getIsFolder(): bool
+    public function isFolder(): bool
     {
         return $this->isFolder;
     }
@@ -884,12 +884,12 @@ class BaseItemDto extends \EmbyClient\Model
         return $this->completionPercentage;
     }
 
-    public function getIsRepeat(): bool
+    public function isRepeat(): bool
     {
         return $this->isRepeat;
     }
 
-    public function getIsNew(): bool
+    public function isNew(): bool
     {
         return $this->isNew;
     }
@@ -899,37 +899,37 @@ class BaseItemDto extends \EmbyClient\Model
         return $this->episodeTitle;
     }
 
-    public function getIsMovie(): bool
+    public function isMovie(): bool
     {
         return $this->isMovie;
     }
 
-    public function getIsSports(): bool
+    public function isSports(): bool
     {
         return $this->isSports;
     }
 
-    public function getIsSeries(): bool
+    public function isSeries(): bool
     {
         return $this->isSeries;
     }
 
-    public function getIsLive(): bool
+    public function isLive(): bool
     {
         return $this->isLive;
     }
 
-    public function getIsNews(): bool
+    public function isNews(): bool
     {
         return $this->isNews;
     }
 
-    public function getIsKids(): bool
+    public function isKids(): bool
     {
         return $this->isKids;
     }
 
-    public function getIsPremiere(): bool
+    public function isPremiere(): bool
     {
         return $this->isPremiere;
     }

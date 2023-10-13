@@ -10,9 +10,9 @@ use EmbyClient\RefName;
 class SyncJobItem extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'mediaSource    ' => \EmbyClient\Model\MediaSourceInfo::class,
-        'status         ' => SyncJobItemStatus::class,
-        'dateCreated    ' => \DateTimeImmutable::class,
+        'mediaSource'     => \EmbyClient\Model\MediaSourceInfo::class,
+        'status'          => SyncJobItemStatus::class,
+        'dateCreated'     => \DateTimeImmutable::class,
         'additionalFiles' => ItemFileInfo::class,
     ];
 

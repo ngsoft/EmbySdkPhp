@@ -22,6 +22,10 @@ class FfmpegOptionsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getEncodingFfmpegoptions'  => [],
+        'postEncodingFfmpegoptions' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

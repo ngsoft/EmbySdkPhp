@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class UserPolicy extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'accessSchedules  ' => \EmbyClient\Model\Configuration\AccessSchedule::class,
+        'accessSchedules'   => \EmbyClient\Model\Configuration\AccessSchedule::class,
         'blockUnratedItems' => \EmbyClient\Model\Configuration\UnratedItem::class,
     ];
 
@@ -66,27 +66,27 @@ class UserPolicy extends \EmbyClient\Model
     protected array $enabledDevices;
     protected bool $enableAllDevices;
 
-    public function getIsAdministrator(): bool
+    public function isAdministrator(): bool
     {
         return $this->isAdministrator;
     }
 
-    public function getIsHidden(): bool
+    public function isHidden(): bool
     {
         return $this->isHidden;
     }
 
-    public function getIsHiddenRemotely(): bool
+    public function isHiddenRemotely(): bool
     {
         return $this->isHiddenRemotely;
     }
 
-    public function getIsHiddenFromUnusedDevices(): bool
+    public function isHiddenFromUnusedDevices(): bool
     {
         return $this->isHiddenFromUnusedDevices;
     }
 
-    public function getIsDisabled(): bool
+    public function isDisabled(): bool
     {
         return $this->isDisabled;
     }
@@ -104,7 +104,7 @@ class UserPolicy extends \EmbyClient\Model
         return $this->blockedTags;
     }
 
-    public function getIsTagBlockingModeInclusive(): bool
+    public function isTagBlockingModeInclusive(): bool
     {
         return $this->isTagBlockingModeInclusive;
     }

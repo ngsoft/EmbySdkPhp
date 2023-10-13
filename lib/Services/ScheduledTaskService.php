@@ -46,6 +46,27 @@ class ScheduledTaskService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getScheduledtasks'                   => [
+            'isEnabled',
+            'isHidden',
+        ],
+        'getScheduledtasksById'               => [
+            'id',
+        ],
+        'postScheduledtasksRunningById'       => [
+            'id',
+        ],
+        'deleteScheduledtasksRunningById'     => [
+            'id',
+        ],
+        'postScheduledtasksByIdTriggers'      => [
+            'id',
+        ],
+        'postScheduledtasksRunningByIdDelete' => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/ScheduledTasks' => [
             'isHidden'  => true,

@@ -46,6 +46,25 @@ class MediaInfoService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postLivestreamsOpen'       => [],
+        'postLivestreamsClose'      => [
+            'liveStreamId',
+        ],
+        'postLivestreamsMediainfo'  => [
+            'liveStreamId',
+        ],
+        'getPlaybackBitratetest'    => [
+            'size',
+        ],
+        'getItemsByIdPlaybackinfo'  => [
+            'id',
+            'userId',
+        ],
+        'postItemsByIdPlaybackinfo' => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/LiveStreams/Close'       => [
             'liveStreamId' => true,

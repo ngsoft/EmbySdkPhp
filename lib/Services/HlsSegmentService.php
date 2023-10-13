@@ -22,6 +22,16 @@ class HlsSegmentService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'deleteVideosActiveencodings'     => [
+            'deviceId',
+            'playSessionId',
+        ],
+        'postVideosActiveencodingsDelete' => [
+            'deviceId',
+            'playSessionId',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Videos/ActiveEncodings'        => [
             'deviceId'      => true,

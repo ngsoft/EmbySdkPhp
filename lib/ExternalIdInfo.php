@@ -29,7 +29,7 @@ class ExternalIdInfo extends \EmbyClient\Model
         return $this->urlFormatString;
     }
 
-    public function getIsSupportedAsIdentifier(): bool
+    public function isSupportedAsIdentifier(): bool
     {
         return $this->isSupportedAsIdentifier;
     }

@@ -70,6 +70,21 @@ class LibraryStructureService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postLibraryVirtualfolders'               => [],
+        'deleteLibraryVirtualfolders'             => [],
+        'getLibraryVirtualfoldersQuery'           => [
+            'startIndex',
+            'limit',
+        ],
+        'postLibraryVirtualfoldersLibraryoptions' => [],
+        'postLibraryVirtualfoldersName'           => [],
+        'postLibraryVirtualfoldersDelete'         => [],
+        'postLibraryVirtualfoldersPaths'          => [],
+        'deleteLibraryVirtualfoldersPaths'        => [],
+        'postLibraryVirtualfoldersPathsUpdate'    => [],
+        'postLibraryVirtualfoldersPathsDelete'    => [],
+    ];
     protected static array $queryParameters  = [
         '/Library/VirtualFolders/Query' => [
             'startIndex' => true,

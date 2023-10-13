@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class SyncDialogOptions extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'targets       ' => \EmbyClient\Model\Sync\SyncTarget::class,
-        'options       ' => SyncJobOption::class,
+        'targets'        => \EmbyClient\Model\Sync\SyncTarget::class,
+        'options'        => SyncJobOption::class,
         'qualityOptions' => SyncQualityOption::class,
         'profileOptions' => SyncProfileOption::class,
     ];

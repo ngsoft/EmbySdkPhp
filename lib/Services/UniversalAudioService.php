@@ -22,6 +22,19 @@ class UniversalAudioService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getAudioByIdUniversalByContainer' => [
+            'id',
+            'deviceId',
+            'container',
+            'startTimeTicks',
+        ],
+        'getAudioByIdUniversal'            => [
+            'id',
+            'deviceId',
+            'startTimeTicks',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Audio/{Id}/universal.{Container}' => [
             'deviceId'       => true,

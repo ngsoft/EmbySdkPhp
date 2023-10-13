@@ -46,6 +46,20 @@ class DlnaService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getDlnaProfileinfos'    => [],
+        'postDlnaProfiles'       => [],
+        'getDlnaProfilesById'    => [
+            'id',
+        ],
+        'postDlnaProfilesById'   => [
+            'id',
+        ],
+        'deleteDlnaProfilesById' => [
+            'id',
+        ],
+        'getDlnaProfilesDefault' => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/Dlna/Profiles/{Id}' => [

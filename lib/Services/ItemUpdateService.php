@@ -22,6 +22,14 @@ class ItemUpdateService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'postItemsByItemid'              => [
+            'itemId',
+        ],
+        'getItemsByItemidMetadataeditor' => [
+            'itemId',
+        ],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/Items/{ItemId}'                => [

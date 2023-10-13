@@ -10,12 +10,12 @@ use EmbyClient\RefName;
 class TimerInfoDto extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'status     ' => RecordingStatus::class,
+        'status'      => RecordingStatus::class,
         'programInfo' => \EmbyClient\Model\BaseItemDto::class,
-        'timerType  ' => TimerType::class,
-        'startDate  ' => \DateTimeImmutable::class,
-        'endDate    ' => \DateTimeImmutable::class,
-        'keepUntil  ' => KeepUntil::class,
+        'timerType'   => TimerType::class,
+        'startDate'   => \DateTimeImmutable::class,
+        'endDate'     => \DateTimeImmutable::class,
+        'keepUntil'   => KeepUntil::class,
     ];
 
     protected RecordingStatus $status;
@@ -139,7 +139,7 @@ class TimerInfoDto extends \EmbyClient\Model
         return $this->postPaddingSeconds;
     }
 
-    public function getIsPrePaddingRequired(): bool
+    public function isPrePaddingRequired(): bool
     {
         return $this->isPrePaddingRequired;
     }
@@ -157,7 +157,7 @@ class TimerInfoDto extends \EmbyClient\Model
         return $this->parentBackdropImageTags;
     }
 
-    public function getIsPostPaddingRequired(): bool
+    public function isPostPaddingRequired(): bool
     {
         return $this->isPostPaddingRequired;
     }

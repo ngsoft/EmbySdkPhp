@@ -10,10 +10,10 @@ use EmbyClient\RefName;
 class RemoteSearchResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'providerIds ' => ProviderIdDictionary::class,
+        'providerIds'  => ProviderIdDictionary::class,
         'premiereDate' => \DateTimeImmutable::class,
-        'albumArtist ' => RemoteSearchResult::class,
-        'artists     ' => RemoteSearchResult::class,
+        'albumArtist'  => RemoteSearchResult::class,
+        'artists'      => RemoteSearchResult::class,
     ];
 
     protected string $name;

@@ -46,6 +46,23 @@ class ImageByNameService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getImagesMediainfo'              => [],
+        'getImagesRatings'                => [],
+        'getImagesGeneral'                => [],
+        'getImagesGeneralByNameByType'    => [
+            'name',
+            'type',
+        ],
+        'getImagesRatingsByThemeByName'   => [
+            'name',
+            'theme',
+        ],
+        'getImagesMediainfoByThemeByName' => [
+            'name',
+            'theme',
+        ],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [
         '/Images/General/{Name}/{Type}'    => [

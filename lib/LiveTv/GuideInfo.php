@@ -11,7 +11,7 @@ class GuideInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'startDate' => \DateTimeImmutable::class,
-        'endDate  ' => \DateTimeImmutable::class,
+        'endDate'   => \DateTimeImmutable::class,
     ];
 
     protected \DateTimeImmutable $startDate;

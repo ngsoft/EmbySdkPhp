@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class ActivityLogEntry extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'date    ' => \DateTimeImmutable::class,
+        'date'     => \DateTimeImmutable::class,
         'severity' => Logging\LogSeverity::class,
     ];
 

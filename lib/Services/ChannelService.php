@@ -16,6 +16,13 @@ class ChannelService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getChannels' => [
+            'userId',
+            'limit',
+            'startIndex',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Channels' => [
             'userId'     => true,

@@ -11,7 +11,7 @@ class ServerConfiguration extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'imageSavingConvention' => ImageSavingConvention::class,
-        'pathSubstitutions    ' => PathSubstitution::class,
+        'pathSubstitutions'     => PathSubstitution::class,
     ];
 
     protected bool $enableUPnP;
@@ -123,7 +123,7 @@ class ServerConfiguration extends \EmbyClient\Model
         return $this->certificatePassword;
     }
 
-    public function getIsPortAuthorized(): bool
+    public function isPortAuthorized(): bool
     {
         return $this->isPortAuthorized;
     }
@@ -262,7 +262,7 @@ class ServerConfiguration extends \EmbyClient\Model
         return $this->requireHttps;
     }
 
-    public function getIsBehindProxy(): bool
+    public function isBehindProxy(): bool
     {
         return $this->isBehindProxy;
     }
@@ -275,7 +275,7 @@ class ServerConfiguration extends \EmbyClient\Model
         return $this->remoteIPFilter;
     }
 
-    public function getIsRemoteIPFilterBlacklist(): bool
+    public function isRemoteIPFilterBlacklist(): bool
     {
         return $this->isRemoteIPFilterBlacklist;
     }
@@ -401,7 +401,7 @@ class ServerConfiguration extends \EmbyClient\Model
         return $this->runAtStartup;
     }
 
-    public function getIsStartupWizardCompleted(): bool
+    public function isStartupWizardCompleted(): bool
     {
         return $this->isStartupWizardCompleted;
     }

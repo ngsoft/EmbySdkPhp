@@ -10,11 +10,11 @@ use EmbyClient\RefName;
 class SessionInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'playState       ' => \EmbyClient\Model\PlayerStateInfo::class,
-        'additionalUsers ' => \EmbyClient\Model\SessionUserInfo::class,
+        'playState'        => \EmbyClient\Model\PlayerStateInfo::class,
+        'additionalUsers'  => \EmbyClient\Model\SessionUserInfo::class,
         'lastActivityDate' => \DateTimeImmutable::class,
-        'nowPlayingItem  ' => \EmbyClient\Model\BaseItemDto::class,
-        'transcodingInfo ' => \EmbyClient\Model\TranscodingInfo::class,
+        'nowPlayingItem'   => \EmbyClient\Model\BaseItemDto::class,
+        'transcodingInfo'  => \EmbyClient\Model\TranscodingInfo::class,
     ];
 
     protected \EmbyClient\Model\PlayerStateInfo $playState;

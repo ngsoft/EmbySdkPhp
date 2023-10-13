@@ -28,6 +28,11 @@ class BrandingService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getBrandingConfiguration' => [],
+        'getBrandingCss'           => [],
+        'getBrandingCssCss'        => [],
+    ];
     protected static array $queryParameters  = [];
     protected static array $pathParameters   = [];
     protected static array $headerParameters = [];

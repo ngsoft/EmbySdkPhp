@@ -16,6 +16,12 @@ class UserViewsService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getUsersByUseridViews' => [
+            'userId',
+            'includeExternalContent',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Users/{UserId}/Views' => [
             'includeExternalContent' => true,

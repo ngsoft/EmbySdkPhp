@@ -11,8 +11,8 @@ class TaskResult extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'startTimeUtc' => \DateTimeImmutable::class,
-        'endTimeUtc  ' => \DateTimeImmutable::class,
-        'status      ' => TaskCompletionStatus::class,
+        'endTimeUtc'   => \DateTimeImmutable::class,
+        'status'       => TaskCompletionStatus::class,
     ];
 
     protected \DateTimeImmutable $startTimeUtc;

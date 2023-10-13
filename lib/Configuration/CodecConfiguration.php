@@ -13,7 +13,7 @@ class CodecConfiguration extends \EmbyClient\Model
     protected int $priority;
     protected string $codecId;
 
-    public function getIsEnabled(): bool
+    public function isEnabled(): bool
     {
         return $this->isEnabled;
     }

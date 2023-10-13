@@ -70,6 +70,40 @@ class DlnaServerService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getDlnaByUuidDescriptionXml'                        => [
+            'uuId',
+        ],
+        'getDlnaByUuidDescription'                           => [
+            'uuId',
+        ],
+        'getDlnaIconsByFilename'                             => [
+            'uuId',
+            'filename',
+        ],
+        'getDlnaByUuidContentdirectoryContentdirectoryXml'   => [
+            'uuId',
+        ],
+        'getDlnaByUuidContentdirectoryContentdirectory'      => [
+            'uuId',
+        ],
+        'getDlnaByUuidConnectionmanagerConnectionmanagerXml' => [
+            'uuId',
+        ],
+        'getDlnaByUuidConnectionmanagerConnectionmanager'    => [
+            'uuId',
+        ],
+        'postDlnaByUuidContentdirectoryControl'              => [
+            'uuId',
+        ],
+        'postDlnaByUuidConnectionmanagerControl'             => [
+            'uuId',
+        ],
+        'getDlnaByUuidIconsByFilename'                       => [
+            'uuId',
+            'filename',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Dlna/icons/{Filename}' => [
             'uuId' => true,

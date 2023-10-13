@@ -11,9 +11,9 @@ class SeriesInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'episodeAirDate' => \DateTimeImmutable::class,
-        'displayOrder  ' => \EmbyClient\Model\SeriesDisplayOrder::class,
-        'providerIds   ' => \EmbyClient\Model\ProviderIdDictionary::class,
-        'premiereDate  ' => \DateTimeImmutable::class,
+        'displayOrder'   => \EmbyClient\Model\SeriesDisplayOrder::class,
+        'providerIds'    => \EmbyClient\Model\ProviderIdDictionary::class,
+        'premiereDate'   => \DateTimeImmutable::class,
     ];
 
     protected \DateTimeImmutable $episodeAirDate;
@@ -79,7 +79,7 @@ class SeriesInfo extends \EmbyClient\Model
         return $this->premiereDate;
     }
 
-    public function getIsAutomated(): bool
+    public function isAutomated(): bool
     {
         return $this->isAutomated;
     }

@@ -154,6 +154,77 @@ class SyncService extends ApiService
             false,
         ],
     ];
+    protected static array $parameters       = [
+        'getSyncTargets'                       => [
+            'userId',
+        ],
+        'getSyncJobs'                          => [],
+        'postSyncJobs'                         => [],
+        'getSyncJobitems'                      => [],
+        'getSyncOptions'                       => [
+            'userId',
+            'itemIds',
+            'parentId',
+            'targetId',
+            'category',
+        ],
+        'postSyncOfflineactions'               => [],
+        'postSyncData'                         => [],
+        'postSyncByItemidStatus'               => [
+            'itemId',
+        ],
+        'getSyncJobsById'                      => [
+            'id',
+        ],
+        'postSyncJobsById'                     => [
+            'id',
+        ],
+        'deleteSyncJobsById'                   => [
+            'id',
+        ],
+        'postSyncItemsCancel'                  => [
+            'itemIds',
+        ],
+        'deleteSyncByTargetidItems'            => [
+            'targetId',
+            'itemIds',
+        ],
+        'getSyncItemsReady'                    => [
+            'targetId',
+        ],
+        'deleteSyncJobitemsById'               => [
+            'id',
+        ],
+        'postSyncJobsByIdDelete'               => [
+            'id',
+        ],
+        'postSyncByTargetidItemsDelete'        => [
+            'targetId',
+            'itemIds',
+        ],
+        'postSyncJobitemsByIdTransferred'      => [
+            'id',
+        ],
+        'getSyncJobitemsByIdFile'              => [
+            'id',
+        ],
+        'getSyncJobitemsByIdAdditionalfiles'   => [
+            'id',
+            'name',
+        ],
+        'postSyncJobitemsByIdEnable'           => [
+            'id',
+        ],
+        'postSyncJobitemsByIdDelete'           => [
+            'id',
+        ],
+        'postSyncJobitemsByIdMarkforremoval'   => [
+            'id',
+        ],
+        'postSyncJobitemsByIdUnmarkforremoval' => [
+            'id',
+        ],
+    ];
     protected static array $queryParameters  = [
         '/Sync/Targets'                       => [
             'userId' => true,

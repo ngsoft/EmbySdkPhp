@@ -10,12 +10,12 @@ use EmbyClient\RefName;
 class MediaSourceInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'protocol       ' => MediaInfo\MediaProtocol::class,
+        'protocol'        => MediaInfo\MediaProtocol::class,
         'encoderProtocol' => MediaInfo\MediaProtocol::class,
-        'type           ' => MediaSourceType::class,
-        'video3DFormat  ' => Video3DFormat::class,
-        'mediaStreams   ' => MediaStream::class,
-        'timestamp      ' => MediaInfo\TransportStreamTimestamp::class,
+        'type'            => MediaSourceType::class,
+        'video3DFormat'   => Video3DFormat::class,
+        'mediaStreams'    => MediaStream::class,
+        'timestamp'       => MediaInfo\TransportStreamTimestamp::class,
     ];
 
     protected MediaInfo\MediaProtocol $protocol;
@@ -111,7 +111,7 @@ class MediaSourceInfo extends \EmbyClient\Model
         return $this->sortName;
     }
 
-    public function getIsRemote(): bool
+    public function isRemote(): bool
     {
         return $this->isRemote;
     }
@@ -141,7 +141,7 @@ class MediaSourceInfo extends \EmbyClient\Model
         return $this->supportsDirectPlay;
     }
 
-    public function getIsInfiniteStream(): bool
+    public function isInfiniteStream(): bool
     {
         return $this->isInfiniteStream;
     }

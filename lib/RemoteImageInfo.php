@@ -10,7 +10,7 @@ use EmbyClient\RefName;
 class RemoteImageInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'type      ' => ImageType::class,
+        'type'       => ImageType::class,
         'ratingType' => RatingType::class,
     ];
 

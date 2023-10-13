@@ -40,7 +40,7 @@ class VpStepInfo extends \EmbyClient\Model
         return $this->hardwareContextName;
     }
 
-    public function getIsHardwareContext(): bool
+    public function isHardwareContext(): bool
     {
         return $this->isHardwareContext;
     }

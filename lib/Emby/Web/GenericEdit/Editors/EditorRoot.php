@@ -11,10 +11,10 @@ class EditorRoot extends \EmbyClient\Model
 {
     protected static array $mapping = [
         'propertyConditions' => \EmbyClient\Model\Emby\Web\GenericEdit\Conditions\PropertyCondition::class,
-        'postbackActions   ' => \EmbyClient\Model\Emby\Web\GenericEdit\Actions\PostbackAction::class,
-        'titleButton       ' => EditorButtonItem::class,
-        'editorItems       ' => EditorBase::class,
-        'editorType        ' => \EmbyClient\Model\Emby\Web\GenericEdit\Common\EditorTypes::class,
+        'postbackActions'    => \EmbyClient\Model\Emby\Web\GenericEdit\Actions\PostbackAction::class,
+        'titleButton'        => EditorButtonItem::class,
+        'editorItems'        => EditorBase::class,
+        'editorType'         => \EmbyClient\Model\Emby\Web\GenericEdit\Common\EditorTypes::class,
     ];
 
     /** @var \EmbyClient\Model\Emby\Web\GenericEdit\Conditions\PropertyCondition[] */
@@ -83,12 +83,12 @@ class EditorRoot extends \EmbyClient\Model
         return $this->allowEmpty;
     }
 
-    public function getIsReadOnly(): bool
+    public function isReadOnly(): bool
     {
         return $this->isReadOnly;
     }
 
-    public function getIsAdvanced(): bool
+    public function isAdvanced(): bool
     {
         return $this->isAdvanced;
     }

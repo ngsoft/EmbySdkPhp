@@ -10,8 +10,8 @@ use EmbyClient\RefName;
 class TranscodingInfo extends \EmbyClient\Model
 {
     protected static array $mapping = [
-        'transcodeReasons ' => TranscodeReason::class,
-        'cpuHistory       ' => Tuple\DoubleDouble::class,
+        'transcodeReasons'  => TranscodeReason::class,
+        'cpuHistory'        => Tuple\DoubleDouble::class,
         'videoPipelineInfo' => Transcoding\VpStepInfo::class,
     ];
 
@@ -71,12 +71,12 @@ class TranscodingInfo extends \EmbyClient\Model
         return $this->container;
     }
 
-    public function getIsVideoDirect(): bool
+    public function isVideoDirect(): bool
     {
         return $this->isVideoDirect;
     }
 
-    public function getIsAudioDirect(): bool
+    public function isAudioDirect(): bool
     {
         return $this->isAudioDirect;
     }
