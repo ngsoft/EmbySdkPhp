@@ -13,6 +13,7 @@ class TrailersService extends ApiService
             '/Trailers',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

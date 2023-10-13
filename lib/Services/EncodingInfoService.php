@@ -13,16 +13,19 @@ class EncodingInfoService extends ApiService
             '/Encoding/ToneMapOptions',
             'GET',
             '\\EmbyClient\\Model\\MediaEncoding\\Configuration\\ToneMapping\\ToneMapOptionsVisibility',
+            false,
         ],
         'getEncodingCodecinformationVideo'      => [
             '/Encoding/CodecInformation/Video',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\MediaEncoding\\Codecs\\VideoCodecs\\VideoCodecBase',
         ],
         'getEncodingCodecconfigurationDefaults' => [
             '/Encoding/CodecConfiguration/Defaults',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Configuration\\CodecConfiguration',
         ],
     ];
     protected static array $queryParameters  = [];

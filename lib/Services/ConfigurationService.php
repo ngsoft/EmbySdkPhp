@@ -13,21 +13,25 @@ class ConfigurationService extends ApiService
             '/System/Configuration',
             'GET',
             '\\EmbyClient\\Model\\Configuration\\ServerConfiguration',
+            false,
         ],
         'postSystemConfiguration'      => [
             '/System/Configuration',
             'POST',
             'void',
+            false,
         ],
         'getSystemConfigurationByKey'  => [
             '/System/Configuration/{Key}',
             'GET',
             'mixed',
+            false,
         ],
         'postSystemConfigurationByKey' => [
             '/System/Configuration/{Key}',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

@@ -13,11 +13,13 @@ class SubtitleOptionsService extends ApiService
             '/Encoding/SubtitleOptions',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Web\\GenericEdit\\EditObjectContainer',
+            false,
         ],
         'postEncodingSubtitleoptions' => [
             '/Encoding/SubtitleOptions',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

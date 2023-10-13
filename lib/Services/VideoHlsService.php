@@ -13,11 +13,13 @@ class VideoHlsService extends ApiService
             '/Videos/{Id}/live.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdHlsByPlaylistidBySegmentidBySegmentcontainer' => [
             '/Videos/{Id}/hls/{PlaylistId}/{SegmentId}.{SegmentContainer}',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -13,41 +13,49 @@ class InstantMixService extends ApiService
             '/Artists/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getAudiobooksNextup'            => [
             '/AudioBooks/NextUp',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getMusicgenresInstantmix'       => [
             '/MusicGenres/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getAlbumsByIdInstantmix'        => [
             '/Albums/{Id}/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getItemsByIdInstantmix'         => [
             '/Items/{Id}/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getMusicgenresByNameInstantmix' => [
             '/MusicGenres/{Name}/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getPlaylistsByIdInstantmix'     => [
             '/Playlists/{Id}/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getSongsByIdInstantmix'         => [
             '/Songs/{Id}/InstantMix',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

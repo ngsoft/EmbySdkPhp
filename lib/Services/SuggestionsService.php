@@ -13,6 +13,7 @@ class SuggestionsService extends ApiService
             '/Users/{UserId}/Suggestions',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

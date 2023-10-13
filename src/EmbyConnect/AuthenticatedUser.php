@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\EmbyConnect;
 
-use EmbyClient\ApiClient;
+use EmbyClient\Client;
 use EmbyClient\EmbyConnect;
 use EmbyClient\EmbyConnect\Model\Server;
 use EmbyClient\EmbyConnect\Model\User;
@@ -49,8 +49,8 @@ class AuthenticatedUser extends Model implements \Countable, \IteratorAggregate
                         )
                 )->withHeader('X-Application', sprintf(
                     '%s/%s',
-                    ApiClient::APP,
-                    ApiClient::VERSION
+                    Client::APP,
+                    Client::VERSION
                 ))->withHeader('X-Connect-UserToken', $this->getAccessToken());
 
                 if ($resp = HttpClient::sendApiRequest($request))

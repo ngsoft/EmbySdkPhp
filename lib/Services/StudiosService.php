@@ -13,11 +13,13 @@ class StudiosService extends ApiService
             '/Studios',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getStudiosByName' => [
             '/Studios/{Name}',
             'GET',
             '\\EmbyClient\\Model\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

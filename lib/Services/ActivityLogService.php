@@ -13,6 +13,7 @@ class ActivityLogService extends ApiService
             '/System/ActivityLog/Entries',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\ActivityLogEntry',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

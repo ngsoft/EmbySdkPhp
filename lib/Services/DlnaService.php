@@ -13,31 +13,37 @@ class DlnaService extends ApiService
             '/Dlna/ProfileInfos',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Emby\\Dlna\\Profiles\\DlnaProfile',
         ],
         'postDlnaProfiles'       => [
             '/Dlna/Profiles',
             'POST',
             'void',
+            false,
         ],
         'getDlnaProfilesById'    => [
             '/Dlna/Profiles/{Id}',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Dlna\\Profiles\\DlnaProfile',
+            false,
         ],
         'postDlnaProfilesById'   => [
             '/Dlna/Profiles/{Id}',
             'POST',
             'void',
+            false,
         ],
         'deleteDlnaProfilesById' => [
             '/Dlna/Profiles/{Id}',
             'DELETE',
             'void',
+            false,
         ],
         'getDlnaProfilesDefault' => [
             '/Dlna/Profiles/Default',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Dlna\\Profiles\\DlnaProfile',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

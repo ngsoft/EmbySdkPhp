@@ -13,11 +13,13 @@ class UniversalAudioService extends ApiService
             '/Audio/{Id}/universal.{Container}',
             'GET',
             'mixed',
+            false,
         ],
         'getAudioByIdUniversal'            => [
             '/Audio/{Id}/universal',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

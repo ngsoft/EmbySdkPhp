@@ -13,11 +13,13 @@ class VideoService extends ApiService
             '/Videos/{Id}/stream.{Container}',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdStream'            => [
             '/Videos/{Id}/stream',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -571,7 +571,7 @@
         "#/components/schemas/Library.RemoveMediaPath": "\\EmbyClient\\Model\\Library\\RemoveMediaPath",
         "#/components/schemas/PlaystateCommand": "\\EmbyClient\\Model\\PlaystateCommand",
         "#/components/schemas/PlaystateRequest": "\\EmbyClient\\Model\\PlaystateRequest",
-        "#/components/schemas/QueryResult_String": "\\EmbyClient\\Model\\QueryResult\\String",
+        "#/components/schemas/QueryResult_String": "\\EmbyClient\\Model\\QueryResult\\Strings",
         "#/components/schemas/Connect.UserLinkResult": "\\EmbyClient\\Model\\Connect\\UserLinkResult",
         "#/components/schemas/RemoteSubtitleInfo": "\\EmbyClient\\Model\\RemoteSubtitleInfo",
         "#/components/schemas/Subtitles.SubtitleDownloadResult": "\\EmbyClient\\Model\\Subtitles\\SubtitleDownloadResult",

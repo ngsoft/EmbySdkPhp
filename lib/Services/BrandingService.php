@@ -13,16 +13,19 @@ class BrandingService extends ApiService
             '/Branding/Configuration',
             'GET',
             '\\EmbyClient\\Model\\Branding\\BrandingOptions',
+            false,
         ],
         'getBrandingCss'           => [
             '/Branding/Css',
             'GET',
             'mixed',
+            false,
         ],
         'getBrandingCssCss'        => [
             '/Branding/Css.css',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 use Brick\VarExporter\VarExporter;
 use EmbyClient\ApiService;
+use EmbyClient\Client;
 use EmbyClient\DynamicModel;
+use EmbyClient\EmbyException;
 use EmbyClient\Model;
 use EmbyClient\RefName;
 use NGSOFT\DataStructure\Map;
-use Psr\Http\Client\ClientExceptionInterface;
 
 function resolvePath(string $ref): array
 {
@@ -45,10 +46,11 @@ function resolveClassName(string $name, string $ns = ''): string
     $name = str_replace(['_', '.'], NAMESPACE_SEPARATOR, $name);
     $name = str_replace('LiveTV\\Api', 'LiveTv\\Api', $name);
     $name = str_replace('-', '', $name);
+    $name = preg_replace('#String$#', 'Strings', $name);
 
-    if ( ! empty($ns) && str_starts_with($name, $ns))
+    if ( ! empty($ns) && str_starts_with($name, $ns . NAMESPACE_SEPARATOR))
     {
-        $name = substr($name, strlen($ns));
+        $name = substr($name, strlen($ns) + 1);
     }
 
     return $name;
@@ -258,29 +260,20 @@ function MakeResponseError(int $code, string $description): void
         '',
         sprintf('namespace %s%s;', $namespace, $subNamespace),
         '',
-        sprintf('use %s;', ClientExceptionInterface::class),
+        sprintf('use %s;', EmbyException::class),
         '',
 
     ];
 
     $template[]   = sprintf(
-        'class %s extends %s implements %s',
+        'class %s extends %s',
         $usableName,
-        NAMESPACE_SEPARATOR . RuntimeException::class,
-        class_basename(ClientExceptionInterface::class)
+        class_basename(EmbyException::class)
     );
 
     $template[]   = '{';
-
-    $template[]   = sprintf(
-        '    public function __construct($message = \'%s\', $code = %u, \\Throwable $previous = null)',
-        $description,
-        $code
-    );
-
-    $template[]   = '    {';
-    $template[]   = '        parent::__construct($message, $code, $previous);';
-    $template[]   = '    }';
+    $template[]   = pad(sprintf('protected string $defaultMessage = \'%s\';', $description));
+    $template[]   = pad(sprintf('protected int $defaultCode = %u;', $code));
     $template[]   = "}\n";
     file_put_contents($fileName, implode("\n", $template));
 }
@@ -312,11 +305,6 @@ function MakeService(Map $service): void
     $className    = NAMESPACE_SEPARATOR . $namespace . $subNamespace . NAMESPACE_SEPARATOR . $usableName;
 
     $fileName     = getFileName($subNamespace . NAMESPACE_SEPARATOR . $usableName);
-
-    if (is_file($fileName) && ! $overwrite)
-    {
-        return;
-    }
 
     @mkdir(dirname($fileName), 0777, true);
 
@@ -423,6 +411,7 @@ function MakeService(Map $service): void
 
             $returns                   = false;
             $returnType                = 'void';
+            $listReturnType            = false;
 
             if ( ! isset($entry['responses']['200']['content']['application/json']['schema']))
             {
@@ -437,15 +426,18 @@ function MakeService(Map $service): void
                 {
                     if ( ! isset($entry['responses']['200']['content']['application/json']['schema']['items']['$ref']))
                     {
-                        $docs[] = sprintf(
+                        $listReturnType = aliasType($entry['responses']['200']['content']['application/json']['schema']['items']['type']);
+
+                        $docs[]         = sprintf(
                             '     * @return %s[]',
-                            aliasType($entry['responses']['200']['content']['application/json']['schema']['items']['type'])
+                            $listReturnType
                         );
                     } else
                     {
-                        $docs[] = sprintf(
+                        $listReturnType = $typeMap[$entry['responses']['200']['content']['application/json']['schema']['items']['$ref']];
+                        $docs[]         = sprintf(
                             '     * @return %s[]',
-                            $typeMap[$entry['responses']['200']['content']['application/json']['schema']['items']['$ref']]
+                            $listReturnType
                         );
                     }
                 }
@@ -482,7 +474,7 @@ function MakeService(Map $service): void
 
             $paramList                 = implode(",\n        ", $paramList);
 
-            $endpoints[$fn]            = [$endpoint, $httpMethod, $returns ? $returnType : 'void'];
+            $endpoints[$fn]            = [$endpoint, $httpMethod, $returns ? $returnType : 'void', $listReturnType];
 
             if (count($docs) > 1)
             {
@@ -542,11 +534,286 @@ function MakeService(Map $service): void
         VarExporter::export($headerParameters)
     );
 
-    //    var_dump($endpoints);
     $template     = array_merge($template, $header, $body);
     $template[]   = "}\n";
 
+    if (is_file($fileName) && ! $overwrite)
+    {
+        return;
+    }
+
+    file_put_contents($fileName, implode("\n", $template));
+}
+const KEY_SIG    = 0;
+const KEY_RET    = 1;
+const KEY_PARAMS = 2;
+const KEY_DOC    = 3;
+
+function isEnumOrConstant(string $input): bool
+{
+    return str_contains($input, '::') && defined($input);
+}
+
+function getFullyQualifiedClassName(string|Stringable|null $class): string
+{
+    if (null === $class || 'NULL' === $class)
+    {
+        return 'null';
+    }
+
+    $class    = (string) $class;
+
+    $splitStr = ['?', '|', '&'];
+
+    foreach ($splitStr as $char)
+    {
+        $split = explode($char, $class);
+
+        foreach ($split as &$segment)
+        {
+            if (str_starts_with($segment, NAMESPACE_SEPARATOR))
+            {
+                continue;
+            }
+
+            if (empty($segment))
+            {
+                continue;
+            }
+
+            if (class_exists($segment) || interface_exists($segment) || isEnumOrConstant($segment))
+            {
+                $segment = NAMESPACE_SEPARATOR . $segment;
+            }
+        }
+        $class = implode($char, $split);
+    }
+
+    return $class;
+}
+
+function var_exporter(mixed $data): string|null
+{
+    if (is_array($data))
+    {
+        $result = '[';
+
+        foreach ($data as $key => $value)
+        {
+            $tmp = var_exporter($value);
+
+            if (null === $tmp)
+            {
+                return null;
+            }
+
+            if (is_int($key))
+            {
+                $result .= sprintf('%s,', $tmp);
+            } else
+            {
+                $result .= sprintf('%s=>%s,', var_export($key, true), $tmp);
+            }
+        }
+        return trim($result, ',') . ']';
+    }
+
+    if (is_scalar($data))
+    {
+        return var_export($data, true);
+    }
+
+    if (is_null($data))
+    {
+        return 'null';
+    }
+    return null;
+}
+
+function pad(string $str, int $len = 4): string
+{
+    $lines = explode("\n", $str);
+
+    foreach ($lines as &$line)
+    {
+        for ($i = 0; $i < $len; ++$i)
+        {
+            $line = " {$line}";
+        }
+    }
+
+    return implode("\n", $lines);
+}
+
+function getClassMethodsSignatures(object|string $instance): array
+{
+    static $model = '(%s)', $sig = KEY_SIG, $ret = KEY_RET, $prm = KEY_PARAMS, $doc = KEY_DOC;
+
+    $result       = [];
+
+    $class        = is_object($instance) ? get_class($instance) : $instance;
+
+    $reflector    = new ReflectionClass($instance);
+
+    /** @var ReflectionMethod $rMethod */
+    foreach ($reflector->getMethods(ReflectionMethod::IS_PUBLIC) as $rMethod)
+    {
+        if ($rMethod->isStatic() || str_starts_with($rMethod->getName(), '__'))
+        {
+            continue;
+        }
+
+        try
+        {
+            /*
+             * Must implements a Spl Interface,
+             * cannot be made static
+             */
+            if (($proto = $rMethod->getPrototype()) && false === $proto->getFileName())
+            {
+                continue;
+            }
+        } catch (\ReflectionException)
+        {
+        }
+
+        $entry                       = ['', '', [], ''];
+
+        if ($docs = $rMethod->getDocComment())
+        {
+            $entry[$doc] = $docs;
+        }
+
+        $returntype                  = 'mixed';
+
+        if ($rMethod->hasReturnType())
+        {
+            $returntype = $rMethod->getReturnType();
+        } elseif ($rMethod->hasTentativeReturnType())
+        {
+            $returntype = $rMethod->getTentativeReturnType();
+        }
+
+        $returntype                  = (string) $returntype;
+
+        if (in_array($returntype, ['self', 'static']))
+        {
+            $returntype = $class;
+        }
+        $entry[$ret]                 = getFullyQualifiedClassName($returntype);
+
+        $params                      = [];
+
+        /** @var ReflectionParameter $rParam */
+        foreach ($rMethod->getParameters() as $rParam)
+        {
+            $type            = $rParam->getType() ?? 'mixed';
+
+            $type            = preg_replace('#self#', $rParam->getDeclaringClass()->getName(), (string) $type);
+
+            $param           = sprintf(
+                '%s %s$%s',
+                getFullyQualifiedClassName($type),
+                $rParam->canBePassedByValue() ? ($rParam->isVariadic() ? '...' : '') : '&', // so passed by reference
+                $rParam->getName()
+            );
+
+            if ($rParam->isDefaultValueAvailable())
+            {
+                if ($rParam->isDefaultValueConstant())
+                {
+                    $param .= sprintf(' = %s', preg_replace('#self#', getFullyQualifiedClassName($rParam->getDeclaringClass()->getName()), $rParam->getDefaultValueConstantName()));
+                } else
+                {
+                    $param .= sprintf(' = %s', var_exporter($rParam->getDefaultValue()));
+                }
+            }
+
+            $nParam          = '$' . $rParam->getName();
+
+            if ($rParam->isVariadic())
+            {
+                $nParam = "...{$nParam}";
+            }
+
+            $params[$nParam] = $param;
+        }
+
+        $entry[$sig]                 = sprintf($model, implode(', ', $params));
+        $entry[$prm]                 = array_keys($params);
+
+        $result[$rMethod->getName()] = $entry;
+    }
+
+    return $result;
+}
+
+function MakeApi(): void
+{
+    global $methodNames, $overwrite;
+
+    $namespace  = 'EmbyClient';
+    $usableName = 'ApiClient';
+    $fileName   = __DIR__ . DIRECTORY_SEPARATOR . $usableName . '.php';
+
+    $template   = [
+        '<?php',
+        '',
+        'declare(strict_types=1);',
+        '',
+        sprintf('namespace %s;', $namespace),
+        '',
+        sprintf('class %s implements %s', $usableName, class_basename(Client::class)),
+        '{',
+    ];
+
+    $header     = $body = [];
+
+    foreach ($methodNames as $service => $methods)
+    {
+        foreach (getClassMethodsSignatures($service) as $method => list($sig, $returnType, $params, $doc))
+        {
+            if ( ! empty($doc))
+            {
+                $body[] = '    ' . $doc;
+            }
+
+            $body[] = pad(sprintf(
+                'public static function %s%s: %s',
+                $method,
+                $sig,
+                resolveClassName($returnType, NAMESPACE_SEPARATOR . $namespace)
+            ));
+            $body[] = pad('{');
+            $fn     = '';
+
+            if ('void' !== $returnType)
+            {
+                $fn = 'return ';
+            }
+            $fn .= sprintf(
+                '%s::create()->%s(%s);',
+                resolveClassName($service, NAMESPACE_SEPARATOR . $namespace),
+                $method,
+                implode(', ', $params)
+            );
+
+            $body[] = pad($fn, 8);
+            $body[] = pad('}');
+            $body[] = '';
+        }
+    }
+
+    $template   = array_merge($template, $header, $body);
+
+    $template[] = "}\n";
+
     //    var_dump(implode("\n", $template));
+    if (is_file($fileName) && ! $overwrite)
+    {
+        return;
+    }
+
     file_put_contents($fileName, implode("\n", $template));
 }
 
@@ -576,22 +843,22 @@ chdir(dirname(__DIR__));
 
 require_once 'vendor/autoload.php';
 
-$source      = __DIR__ . '/../resources/openapi_v3.json';
-$schema      = json_decode(file_get_contents($source), true);
+$source          = __DIR__ . '/../resources/openapi_v3.json';
+$schema          = json_decode(file_get_contents($source), true);
 
 if ( ! is_array($schema))
 {
     exit('Invalid schema');
 }
 
-$root        = __DIR__ . '/../lib';
-$namespace   = Model::class;
-$overwrite   = in_array('-f', $argv);
-$mapping     = [];
-$uniqueTypes = [];
-$typeMap     = [];
+$root            = __DIR__ . '/../lib';
+$namespace       = Model::class;
+$overwrite       = in_array('-f', $argv);
+$mapping         = [];
+$uniqueTypes     = [];
+$typeMap         = [];
 
-$path        = '#/components/schemas/';
+$path            = '#/components/schemas/';
 
 // Schemas
 foreach (resolvePath($path) as $name => $data)
@@ -668,7 +935,7 @@ foreach (resolvePath($path) as $name => $data)
 }
 
 // Responses
-$path        = '#/components/responses/';
+$path            = '#/components/responses/';
 
 foreach (resolvePath($path) as $code => $data)
 {
@@ -680,8 +947,8 @@ foreach (resolvePath($path) as $code => $data)
 
 // services
 
-$path        = '#/tags/';
-$tags        = [];
+$path            = '#/tags/';
+$tags            = [];
 
 foreach (resolvePath($path) as $item)
 {
@@ -689,13 +956,13 @@ foreach (resolvePath($path) as $item)
 }
 
 // implements services
-$path        = '#/paths';
+$path            = '#/paths';
 // path => tag
-$services    = [];
+$services        = [];
 // methods for AIO static class
-$methodNames = [];
+$methodNames     = [];
 
-$httpMethods = [
+$httpMethods     = [
     'get'    => 'GET',
     'post'   => 'POST',
     'put'    => 'PUT',
@@ -716,7 +983,7 @@ foreach ($services as $service)
     MakeService($service);
 }
 
-// var_dump($services);
+MakeApi();
 
 // write maps to json file
 krsort($uniqueTypes);

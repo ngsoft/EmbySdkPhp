@@ -13,11 +13,13 @@ class MusicGenresService extends ApiService
             '/MusicGenres',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getMusicgenresByName' => [
             '/MusicGenres/{Name}',
             'GET',
             '\\EmbyClient\\Model\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

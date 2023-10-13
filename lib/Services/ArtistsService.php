@@ -13,16 +13,19 @@ class ArtistsService extends ApiService
             '/Artists',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getArtistsByName'       => [
             '/Artists/{Name}',
             'GET',
             '\\EmbyClient\\Model\\BaseItemDto',
+            false,
         ],
         'getArtistsAlbumartists' => [
             '/Artists/AlbumArtists',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

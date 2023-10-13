@@ -13,16 +13,19 @@ class VideosService extends ApiService
             '/Videos/MergeVersions',
             'POST',
             'void',
+            false,
         ],
         'deleteVideosByIdAlternatesources'     => [
             '/Videos/{Id}/AlternateSources',
             'DELETE',
             'void',
+            false,
         ],
         'postVideosByIdAlternatesourcesDelete' => [
             '/Videos/{Id}/AlternateSources/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

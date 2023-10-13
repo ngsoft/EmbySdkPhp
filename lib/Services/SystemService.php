@@ -13,66 +13,79 @@ class SystemService extends ApiService
             '/System/ReleaseNotes',
             'GET',
             '\\EmbyClient\\Model\\Updates\\PackageVersionInfo',
+            false,
         ],
         'getSystemPing'                 => [
             '/System/Ping',
             'GET',
             'void',
+            false,
         ],
         'postSystemPing'                => [
             '/System/Ping',
             'POST',
             'void',
+            false,
         ],
         'getSystemWakeonlaninfo'        => [
             '/System/WakeOnLanInfo',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\WakeOnLanInfo',
         ],
         'getSystemInfo'                 => [
             '/System/Info',
             'GET',
             '\\EmbyClient\\Model\\SystemInfo',
+            false,
         ],
         'postSystemRestart'             => [
             '/System/Restart',
             'POST',
             'mixed',
+            false,
         ],
         'postSystemShutdown'            => [
             '/System/Shutdown',
             'POST',
             'mixed',
+            false,
         ],
         'getSystemEndpoint'             => [
             '/System/Endpoint',
             'GET',
             '\\EmbyClient\\Model\\Net\\EndPointInfo',
+            false,
         ],
         'getSystemReleasenotesVersions' => [
             '/System/ReleaseNotes/Versions',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Updates\\PackageVersionInfo',
         ],
         'getSystemLogsQuery'            => [
             '/System/Logs/Query',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\LogFile',
+            false,
         ],
         'getSystemLogsByName'           => [
             '/System/Logs/{Name}',
             'GET',
             'mixed',
+            false,
         ],
         'getSystemInfoPublic'           => [
             '/System/Info/Public',
             'GET',
             '\\EmbyClient\\Model\\PublicSystemInfo',
+            false,
         ],
         'getSystemLogsByNameLines'      => [
             '/System/Logs/{Name}/Lines',
             'GET',
-            '\\EmbyClient\\Model\\QueryResult\\String',
+            '\\EmbyClient\\Model\\QueryResult\\Strings',
+            false,
         ],
     ];
     protected static array $queryParameters  = [
@@ -206,7 +219,7 @@ class SystemService extends ApiService
      * Gets a log file
      * Requires authentication as administrator.
      */
-    public function getSystemLogsByNameLines(string $name): \EmbyClient\Model\QueryResult\string
+    public function getSystemLogsByNameLines(string $name): \EmbyClient\Model\QueryResult\Strings
     {
         return $this->makeApiCall(__FUNCTION__, $name);
     }

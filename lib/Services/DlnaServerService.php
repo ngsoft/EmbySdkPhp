@@ -13,51 +13,61 @@ class DlnaServerService extends ApiService
             '/Dlna/{UuId}/description.xml',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaByUuidDescription'                           => [
             '/Dlna/{UuId}/description',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaIconsByFilename'                             => [
             '/Dlna/icons/{Filename}',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaByUuidContentdirectoryContentdirectoryXml'   => [
             '/Dlna/{UuId}/contentdirectory/contentdirectory.xml',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaByUuidContentdirectoryContentdirectory'      => [
             '/Dlna/{UuId}/contentdirectory/contentdirectory',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaByUuidConnectionmanagerConnectionmanagerXml' => [
             '/Dlna/{UuId}/connectionmanager/connectionmanager.xml',
             'GET',
             'mixed',
+            false,
         ],
         'getDlnaByUuidConnectionmanagerConnectionmanager'    => [
             '/Dlna/{UuId}/connectionmanager/connectionmanager',
             'GET',
             'mixed',
+            false,
         ],
         'postDlnaByUuidContentdirectoryControl'              => [
             '/Dlna/{UuId}/contentdirectory/control',
             'POST',
             'mixed',
+            false,
         ],
         'postDlnaByUuidConnectionmanagerControl'             => [
             '/Dlna/{UuId}/connectionmanager/control',
             'POST',
             'mixed',
+            false,
         ],
         'getDlnaByUuidIconsByFilename'                       => [
             '/Dlna/{UuId}/icons/{Filename}',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -13,6 +13,7 @@ class OfficialRatingService extends ApiService
             '/OfficialRatings',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\OfficialRatingItem',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

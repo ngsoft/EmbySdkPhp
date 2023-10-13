@@ -13,36 +13,43 @@ class NotificationsService extends ApiService
             '/Notifications/Types',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Notifications\\NotificationTypeInfo',
         ],
         'getNotificationsServices'        => [
             '/Notifications/Services',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\NameIdPair',
         ],
         'postNotificationsAdmin'          => [
             '/Notifications/Admin',
             'POST',
             'void',
+            false,
         ],
         'getNotificationsByUserid'        => [
             '/Notifications/{UserId}',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Notifications\\Api\\NotificationResult',
+            false,
         ],
         'getNotificationsByUseridSummary' => [
             '/Notifications/{UserId}/Summary',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Notifications\\Api\\NotificationsSummary',
+            false,
         ],
         'postNotificationsByUseridRead'   => [
             '/Notifications/{UserId}/Read',
             'POST',
             'void',
+            false,
         ],
         'postNotificationsByUseridUnread' => [
             '/Notifications/{UserId}/Unread',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

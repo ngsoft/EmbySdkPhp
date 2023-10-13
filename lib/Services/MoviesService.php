@@ -13,6 +13,7 @@ class MoviesService extends ApiService
             '/Movies/Recommendations',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\RecommendationDto',
         ],
     ];
     protected static array $queryParameters  = [

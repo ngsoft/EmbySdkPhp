@@ -89,22 +89,23 @@ class Connection
         string $endpoint,
         array $query = [],
         array $headers = [],
-        string $method = 'GET'
+        string $method = 'GET',
+        bool $silent = true
     ): ?array {
         return HttpClient::sendApiRequest($this->createRequest(
             $endpoint,
             $query,
             $headers,
             $method
-        ));
+        ), $silent);
     }
 
     /**
      * Tests if connection works.
      */
-    public function testConnection(): bool
+    public function testConnection(bool $silent = true): bool
     {
-        return $this->connection ??= null !== $this->makeApiCall('/Libraries/AvailableOptions');
+        return $this->connection ??= null !== $this->makeApiCall('/Libraries/AvailableOptions', silent: $silent);
     }
 
     /**

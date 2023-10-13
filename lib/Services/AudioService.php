@@ -13,11 +13,13 @@ class AudioService extends ApiService
             '/Audio/{Id}/stream.{Container}',
             'GET',
             'mixed',
+            false,
         ],
         'getAudioByIdStream'            => [
             '/Audio/{Id}/stream',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

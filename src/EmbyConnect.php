@@ -8,14 +8,15 @@ use EmbyClient\EmbyConnect\AuthenticatedUser;
 
 final class EmbyConnect
 {
-    public const BASEPATH              = 'https://connect.emby.media/service';
-    public const SERVERS_ENDPOINT      = '/servers';
-    public const AUTHENTICATE_ENDPOINT = '/user/authenticate';
+    public const BASEPATH                   = 'https://connect.emby.media/service';
+    public const SERVERS_ENDPOINT           = '/servers';
+    public const AUTHENTICATE_ENDPOINT      = '/user/authenticate';
+    private const EMBY_TOKEN_CACHE_VALIDITY = 600;
 
     /**
      * @var array<string,Connection>
      */
-    private static array $connections  = [];
+    private static array $connections       = [];
 
     /**
      * @return Connection|Connection[]
@@ -66,8 +67,8 @@ final class EmbyConnect
                     ->withHeader('Content-Type', 'application/json')
                     ->withHeader('X-Application', sprintf(
                         '%s/%s',
-                        ApiClient::APP,
-                        ApiClient::VERSION
+                        Client::APP,
+                        Client::VERSION
                     ))
                     ->withBody(
                         HttpClient::getHttpFactory()->createStream(
@@ -99,7 +100,7 @@ final class EmbyConnect
 
                 if ( ! empty($result))
                 {
-                    Cache::set($key, $result);
+                    Cache::set($key, $result, self::EMBY_TOKEN_CACHE_VALIDITY);
                     $cache[$username][$password] = $result;
                 }
             }

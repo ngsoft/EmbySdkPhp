@@ -13,21 +13,25 @@ class ItemsService extends ApiService
             '/Items',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'deleteItems'                 => [
             '/Items',
             'DELETE',
             'void',
+            false,
         ],
         'getUsersByUseridItems'       => [
             '/Users/{UserId}/Items',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getUsersByUseridItemsResume' => [
             '/Users/{UserId}/Items/Resume',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

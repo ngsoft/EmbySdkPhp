@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Exceptions;
 
-use Psr\Http\Client\ClientExceptionInterface;
+use EmbyClient\EmbyException;
 
-class Response401 extends \RuntimeException implements ClientExceptionInterface
+class Response401 extends EmbyException
 {
-    public function __construct($message = 'Unauthorized. Client needs to authenticate.', $code = 401, \Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    protected string $defaultMessage = 'Unauthorized. Client needs to authenticate.';
+    protected int $defaultCode       = 401;
 }

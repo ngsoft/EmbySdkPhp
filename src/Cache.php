@@ -61,8 +61,9 @@ final class Cache
      *
      * @param string              $key          the cache key
      * @param null|\Closure|mixed $defaultValue if a closure is provided it will be called and the return value will be used
+     * @param int                 $seconds      if a default value is provided it will be cached, that parameter set the number of seconds until the item expires, 0 never expires
      */
-    public static function get(string $key, mixed $defaultValue = null): mixed
+    public static function get(string $key, mixed $defaultValue = null, int $seconds = 0): mixed
     {
         if (self::getCachePool())
         {
@@ -76,13 +77,14 @@ final class Cache
 
                     if (isset($value))
                     {
-                        self::getCachePool()->save(
-                            $item->set($value)
-                        );
+                        self::set($key, $value, $seconds);
                     }
+                } else
+                {
+                    $value = $item->get();
                 }
 
-                return $item->get();
+                return $value;
             } catch (InvalidArgumentException)
             {
             }
@@ -91,7 +93,14 @@ final class Cache
         return value($defaultValue);
     }
 
-    public static function set(string $key, mixed $value): void
+    /**
+     * Saves a value into the cache.
+     *
+     * @param string $key     The cache key
+     * @param mixed  $value   the value to store, null will delete the cached item
+     * @param int    $seconds that parameters give the number of seconds until the item expires, 0 never expires
+     */
+    public static function set(string $key, mixed $value, int $seconds = 0): void
     {
         if (self::getCachePool())
         {
@@ -107,10 +116,18 @@ final class Cache
             {
                 try
                 {
+                    $item = self::getCachePool()
+                        ->getItem($key)
+                        ->set($value)
+                    ;
+
+                    if ($seconds > 0)
+                    {
+                        $item->expiresAfter($seconds);
+                    }
+
                     self::getCachePool()->save(
-                        self::getCachePool()
-                            ->getItem($key)
-                            ->set($value)
+                        $item
                     );
                 } catch (InvalidArgumentException)
                 {
@@ -119,6 +136,9 @@ final class Cache
         }
     }
 
+    /**
+     * Removes a value from the cache.
+     */
     public static function delete(string $key): void
     {
         try
@@ -129,6 +149,9 @@ final class Cache
         }
     }
 
+    /**
+     * Clears the cache.
+     */
     public static function clear(): void
     {
         self::getCachePool()?->clear();

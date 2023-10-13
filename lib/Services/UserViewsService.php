@@ -13,6 +13,7 @@ class UserViewsService extends ApiService
             '/Users/{UserId}/Views',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

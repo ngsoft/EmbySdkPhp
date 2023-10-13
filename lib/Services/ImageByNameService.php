@@ -13,31 +13,37 @@ class ImageByNameService extends ApiService
             '/Images/MediaInfo',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\ImageByNameInfo',
         ],
         'getImagesRatings'                => [
             '/Images/Ratings',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\ImageByNameInfo',
         ],
         'getImagesGeneral'                => [
             '/Images/General',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\ImageByNameInfo',
         ],
         'getImagesGeneralByNameByType'    => [
             '/Images/General/{Name}/{Type}',
             'GET',
             'mixed',
+            false,
         ],
         'getImagesRatingsByThemeByName'   => [
             '/Images/Ratings/{Theme}/{Name}',
             'GET',
             'mixed',
+            false,
         ],
         'getImagesMediainfoByThemeByName' => [
             '/Images/MediaInfo/{Theme}/{Name}',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

@@ -13,11 +13,13 @@ class PersonsService extends ApiService
             '/Persons',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getPersonsByName' => [
             '/Persons/{Name}',
             'GET',
             '\\EmbyClient\\Model\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

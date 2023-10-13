@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Exceptions;
 
-use Psr\Http\Client\ClientExceptionInterface;
+use EmbyClient\EmbyException;
 
-class Response500 extends \RuntimeException implements ClientExceptionInterface
+class Response500 extends EmbyException
 {
-    public function __construct($message = 'Server error.', $code = 500, \Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    protected string $defaultMessage = 'Server error.';
+    protected int $defaultCode       = 500;
 }

@@ -13,41 +13,49 @@ class DeviceService extends ApiService
             '/Devices',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\Devices\\DeviceInfo',
+            false,
         ],
         'deleteDevices'            => [
             '/Devices',
             'DELETE',
             'mixed',
+            false,
         ],
         'getDevicesOptions'        => [
             '/Devices/Options',
             'GET',
             '\\EmbyClient\\Model\\Devices\\DeviceOptions',
+            false,
         ],
         'postDevicesOptions'       => [
             '/Devices/Options',
             'POST',
             'void',
+            false,
         ],
         'getDevicesInfo'           => [
             '/Devices/Info',
             'GET',
             '\\EmbyClient\\Model\\Devices\\DeviceInfo',
+            false,
         ],
         'getDevicesCamerauploads'  => [
             '/Devices/CameraUploads',
             'GET',
             '\\EmbyClient\\Model\\Devices\\ContentUploadHistory',
+            false,
         ],
         'postDevicesCamerauploads' => [
             '/Devices/CameraUploads',
             'POST',
             'void',
+            false,
         ],
         'postDevicesDelete'        => [
             '/Devices/Delete',
             'POST',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

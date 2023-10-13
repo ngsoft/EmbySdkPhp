@@ -13,11 +13,13 @@ class HlsSegmentService extends ApiService
             '/Videos/ActiveEncodings',
             'DELETE',
             'mixed',
+            false,
         ],
         'postVideosActiveencodingsDelete' => [
             '/Videos/ActiveEncodings/Delete',
             'POST',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -13,21 +13,25 @@ class LocalizationService extends ApiService
             '/Localization/ParentalRatings',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\ParentalRating',
         ],
         'getLocalizationOptions'         => [
             '/Localization/Options',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Globalization\\LocalizatonOption',
         ],
         'getLocalizationCountries'       => [
             '/Localization/Countries',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Globalization\\CountryInfo',
         ],
         'getLocalizationCultures'        => [
             '/Localization/Cultures',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Globalization\\CultureDto',
         ],
     ];
     protected static array $queryParameters  = [];

@@ -13,41 +13,49 @@ class DynamicHlsService extends ApiService
             '/Audio/{Id}/master.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getAudioByIdMainM3u8'                                       => [
             '/Audio/{Id}/main.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdMasterM3u8'                                    => [
             '/Videos/{Id}/master.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdMainM3u8'                                      => [
             '/Videos/{Id}/main.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdSubtitlesM3u8'                                 => [
             '/Videos/{Id}/subtitles.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdLiveSubtitlesM3u8'                             => [
             '/Videos/{Id}/live_subtitles.m3u8',
             'GET',
             'mixed',
+            false,
         ],
         'getAudioByIdHls1ByPlaylistidBySegmentidBySegmentcontainer'  => [
             '/Audio/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdHls1ByPlaylistidBySegmentidBySegmentcontainer' => [
             '/Videos/{Id}/hls1/{PlaylistId}/{SegmentId}.{SegmentContainer}',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

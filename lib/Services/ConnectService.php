@@ -13,26 +13,31 @@ class ConnectService extends ApiService
             '/Connect/Pending',
             'GET',
             'mixed',
+            false,
         ],
         'getConnectExchange'             => [
             '/Connect/Exchange',
             'GET',
             '\\EmbyClient\\Model\\Connect\\ConnectAuthenticationExchangeResult',
+            false,
         ],
         'postUsersByIdConnectLink'       => [
             '/Users/{Id}/Connect/Link',
             'POST',
             '\\EmbyClient\\Model\\Connect\\UserLinkResult',
+            false,
         ],
         'deleteUsersByIdConnectLink'     => [
             '/Users/{Id}/Connect/Link',
             'DELETE',
             'void',
+            false,
         ],
         'postUsersByIdConnectLinkDelete' => [
             '/Users/{Id}/Connect/Link/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

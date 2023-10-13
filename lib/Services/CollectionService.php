@@ -13,21 +13,25 @@ class CollectionService extends ApiService
             '/Collections',
             'POST',
             '\\EmbyClient\\Model\\Collections\\CollectionCreationResult',
+            false,
         ],
         'postCollectionsByIdItems'       => [
             '/Collections/{Id}/Items',
             'POST',
             'void',
+            false,
         ],
         'deleteCollectionsByIdItems'     => [
             '/Collections/{Id}/Items',
             'DELETE',
             'void',
+            false,
         ],
         'postCollectionsByIdItemsDelete' => [
             '/Collections/{Id}/Items/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

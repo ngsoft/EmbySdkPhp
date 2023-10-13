@@ -13,21 +13,25 @@ class RemoteImageService extends ApiService
             '/Images/Remote',
             'GET',
             'mixed',
+            false,
         ],
         'getItemsByIdRemoteimages'          => [
             '/Items/{Id}/RemoteImages',
             'GET',
             '\\EmbyClient\\Model\\RemoteImageResult',
+            false,
         ],
         'getItemsByIdRemoteimagesProviders' => [
             '/Items/{Id}/RemoteImages/Providers',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\ImageProviderInfo',
         ],
         'postItemsByIdRemoteimagesDownload' => [
             '/Items/{Id}/RemoteImages/Download',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -13,11 +13,13 @@ class BifService extends ApiService
             '/Items/{Id}/ThumbnailSet',
             'GET',
             '\\EmbyClient\\Model\\RokuMetadata\\Api\\ThumbnailSetInfo',
+            false,
         ],
         'getVideosByIdIndexBif'    => [
             '/Videos/{Id}/index.bif',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

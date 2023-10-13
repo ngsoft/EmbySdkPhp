@@ -13,21 +13,25 @@ class OpenApiService extends ApiService
             '/openapi',
             'GET',
             'string',
+            false,
         ],
         'getOpenapiJson' => [
             '/openapi.json',
             'GET',
             'string',
+            false,
         ],
         'getSwagger'     => [
             '/swagger',
             'GET',
             'string',
+            false,
         ],
         'getSwaggerJson' => [
             '/swagger.json',
             'GET',
             'string',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

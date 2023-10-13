@@ -13,56 +13,67 @@ class TagService extends ApiService
             '/AudioCodecs',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getContainers'        => [
             '/Containers',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getItemtypes'         => [
             '/ItemTypes',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getStreamlanguages'   => [
             '/StreamLanguages',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getSubtitlecodecs'    => [
             '/SubtitleCodecs',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getTags'              => [
             '/Tags',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getVideocodecs'       => [
             '/VideoCodecs',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getYears'             => [
             '/Years',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\UserLibrary\\TagItem',
+            false,
         ],
         'getArtistsPrefixes'   => [
             '/Artists/Prefixes',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\NameValuePair',
         ],
         'getItemsPrefixes'     => [
             '/Items/Prefixes',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\NameValuePair',
         ],
         'postItemsByIdTagsAdd' => [
             '/Items/{Id}/Tags/Add',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

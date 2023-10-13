@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\QueryResult;
 
-class String extends \EmbyClient\Model
+class Strings extends \EmbyClient\Model
 {
     /** @var string[] */
     protected array $items;

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Exceptions;
 
-use Psr\Http\Client\ClientExceptionInterface;
+use EmbyClient\EmbyException;
 
-class Response404 extends \RuntimeException implements ClientExceptionInterface
+class Response404 extends EmbyException
 {
-    public function __construct($message = 'Resource not found or unavailable.', $code = 404, \Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    protected string $defaultMessage = 'Resource not found or unavailable.';
+    protected int $defaultCode       = 404;
 }

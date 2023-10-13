@@ -13,31 +13,37 @@ class PluginService extends ApiService
             '/Plugins',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Plugins\\PluginInfo',
         ],
         'deletePluginsById'            => [
             '/Plugins/{Id}',
             'DELETE',
             'void',
+            false,
         ],
         'getPluginsByIdThumb'          => [
             '/Plugins/{Id}/Thumb',
             'GET',
             'mixed',
+            false,
         ],
         'getPluginsByIdConfiguration'  => [
             '/Plugins/{Id}/Configuration',
             'GET',
             'mixed',
+            false,
         ],
         'postPluginsByIdConfiguration' => [
             '/Plugins/{Id}/Configuration',
             'POST',
             'void',
+            false,
         ],
         'postPluginsByIdDelete'        => [
             '/Plugins/{Id}/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

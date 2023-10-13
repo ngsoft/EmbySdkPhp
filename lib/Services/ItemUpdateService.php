@@ -13,11 +13,13 @@ class ItemUpdateService extends ApiService
             '/Items/{ItemId}',
             'POST',
             'void',
+            false,
         ],
         'getItemsByItemidMetadataeditor' => [
             '/Items/{ItemId}/MetadataEditor',
             'GET',
             '\\EmbyClient\\Model\\MetadataEditorInfo',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

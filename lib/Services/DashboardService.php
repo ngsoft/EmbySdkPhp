@@ -13,16 +13,19 @@ class DashboardService extends ApiService
             '/web/ConfigurationPage',
             'GET',
             'mixed',
+            false,
         ],
         'getWebConfigurationpages' => [
             '/web/ConfigurationPages',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Emby\\Web\\Api\\ConfigurationPageInfo',
         ],
         'getWebStrings'            => [
             '/web/strings',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

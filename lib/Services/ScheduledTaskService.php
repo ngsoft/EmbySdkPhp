@@ -13,31 +13,37 @@ class ScheduledTaskService extends ApiService
             '/ScheduledTasks',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Tasks\\TaskInfo',
         ],
         'getScheduledtasksById'               => [
             '/ScheduledTasks/{Id}',
             'GET',
             '\\EmbyClient\\Model\\Tasks\\TaskInfo',
+            false,
         ],
         'postScheduledtasksRunningById'       => [
             '/ScheduledTasks/Running/{Id}',
             'POST',
             'void',
+            false,
         ],
         'deleteScheduledtasksRunningById'     => [
             '/ScheduledTasks/Running/{Id}',
             'DELETE',
             'void',
+            false,
         ],
         'postScheduledtasksByIdTriggers'      => [
             '/ScheduledTasks/{Id}/Triggers',
             'POST',
             'void',
+            false,
         ],
         'postScheduledtasksRunningByIdDelete' => [
             '/ScheduledTasks/Running/{Id}/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

@@ -13,31 +13,37 @@ class PackageService extends ApiService
             '/Packages',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Updates\\PackageInfo',
         ],
         'getPackagesUpdates'               => [
             '/Packages/Updates',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\Updates\\PackageVersionInfo',
         ],
         'getPackagesByName'                => [
             '/Packages/{Name}',
             'GET',
             '\\EmbyClient\\Model\\Updates\\PackageInfo',
+            false,
         ],
         'postPackagesInstalledByName'      => [
             '/Packages/Installed/{Name}',
             'POST',
             'void',
+            false,
         ],
         'deletePackagesInstallingById'     => [
             '/Packages/Installing/{Id}',
             'DELETE',
             'void',
+            false,
         ],
         'postPackagesInstallingByIdDelete' => [
             '/Packages/Installing/{Id}/Delete',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

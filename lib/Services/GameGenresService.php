@@ -13,11 +13,13 @@ class GameGenresService extends ApiService
             '/GameGenres',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getGamegenresByName' => [
             '/GameGenres/{Name}',
             'GET',
             '\\EmbyClient\\Model\\BaseItemDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

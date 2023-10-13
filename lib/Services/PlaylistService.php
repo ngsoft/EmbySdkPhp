@@ -13,31 +13,37 @@ class PlaylistService extends ApiService
             '/Playlists',
             'POST',
             '\\EmbyClient\\Model\\Playlists\\PlaylistCreationResult',
+            false,
         ],
         'getPlaylistsByIdItems'                        => [
             '/Playlists/{Id}/Items',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'postPlaylistsByIdItems'                       => [
             '/Playlists/{Id}/Items',
             'POST',
             'void',
+            false,
         ],
         'deletePlaylistsByIdItems'                     => [
             '/Playlists/{Id}/Items',
             'DELETE',
             'void',
+            false,
         ],
         'postPlaylistsByIdItemsDelete'                 => [
             '/Playlists/{Id}/Items/Delete',
             'POST',
             'void',
+            false,
         ],
         'postPlaylistsByIdItemsByItemidMoveByNewindex' => [
             '/Playlists/{Id}/Items/{ItemId}/Move/{NewIndex}',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

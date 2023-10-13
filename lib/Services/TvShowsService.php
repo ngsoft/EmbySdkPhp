@@ -13,21 +13,25 @@ class TvShowsService extends ApiService
             '/Shows/Upcoming',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getShowsNextup'       => [
             '/Shows/NextUp',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getShowsByIdSeasons'  => [
             '/Shows/{Id}/Seasons',
             'GET',
             '\\EmbyClient\\Model\\QueryResult\\BaseItemDto',
+            false,
         ],
         'getShowsByIdEpisodes' => [
             '/Shows/{Id}/Episodes',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

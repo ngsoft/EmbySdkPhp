@@ -13,21 +13,25 @@ class ToneMapOptionsService extends ApiService
             '/Encoding/FullToneMapOptions',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Web\\GenericEdit\\EditObjectContainer',
+            false,
         ],
         'postEncodingFulltonemapoptions'   => [
             '/Encoding/FullToneMapOptions',
             'POST',
             'void',
+            false,
         ],
         'getEncodingPublictonemapoptions'  => [
             '/Encoding/PublicToneMapOptions',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Web\\GenericEdit\\EditObjectContainer',
+            false,
         ],
         'postEncodingPublictonemapoptions' => [
             '/Encoding/PublicToneMapOptions',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

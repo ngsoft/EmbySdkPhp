@@ -13,56 +13,67 @@ class SubtitleService extends ApiService
             '/Items/{Id}/Subtitles/{Index}',
             'DELETE',
             'mixed',
+            false,
         ],
         'getProvidersSubtitlesSubtitlesById'                                             => [
             '/Providers/Subtitles/Subtitles/{Id}',
             'GET',
             'void',
+            false,
         ],
         'deleteVideosByIdSubtitlesByIndex'                                               => [
             '/Videos/{Id}/Subtitles/{Index}',
             'DELETE',
             'mixed',
+            false,
         ],
         'getItemsByIdRemotesearchSubtitlesByLanguage'                                    => [
             '/Items/{Id}/RemoteSearch/Subtitles/{Language}',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\RemoteSubtitleInfo',
         ],
         'postItemsByIdSubtitlesByIndexDelete'                                            => [
             '/Items/{Id}/Subtitles/{Index}/Delete',
             'POST',
             'mixed',
+            false,
         ],
         'postItemsByIdRemotesearchSubtitlesBySubtitleid'                                 => [
             '/Items/{Id}/RemoteSearch/Subtitles/{SubtitleId}',
             'POST',
             '\\EmbyClient\\Model\\Subtitles\\SubtitleDownloadResult',
+            false,
         ],
         'postVideosByIdSubtitlesByIndexDelete'                                           => [
             '/Videos/{Id}/Subtitles/{Index}/Delete',
             'POST',
             'mixed',
+            false,
         ],
         'getItemsByIdByMediasourceidSubtitlesByIndexStreamByFormat'                      => [
             '/Items/{Id}/{MediaSourceId}/Subtitles/{Index}/Stream.{Format}',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdByMediasourceidSubtitlesByIndexStreamByFormat'                     => [
             '/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/Stream.{Format}',
             'GET',
             'mixed',
+            false,
         ],
         'getItemsByIdByMediasourceidSubtitlesByIndexByStartpositionticksStreamByFormat'  => [
             '/Items/{Id}/{MediaSourceId}/Subtitles/{Index}/{StartPositionTicks}/Stream.{Format}',
             'GET',
             'mixed',
+            false,
         ],
         'getVideosByIdByMediasourceidSubtitlesByIndexByStartpositionticksStreamByFormat' => [
             '/Videos/{Id}/{MediaSourceId}/Subtitles/{Index}/{StartPositionTicks}/Stream.{Format}',
             'GET',
             'mixed',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

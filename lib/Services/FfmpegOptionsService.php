@@ -13,11 +13,13 @@ class FfmpegOptionsService extends ApiService
             '/Encoding/FfmpegOptions',
             'GET',
             '\\EmbyClient\\Model\\Emby\\Web\\GenericEdit\\EditObjectContainer',
+            false,
         ],
         'postEncodingFfmpegoptions' => [
             '/Encoding/FfmpegOptions',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [];

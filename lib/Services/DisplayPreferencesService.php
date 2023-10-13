@@ -13,11 +13,13 @@ class DisplayPreferencesService extends ApiService
             '/DisplayPreferences/{Id}',
             'GET',
             '\\EmbyClient\\Model\\DisplayPreferences',
+            false,
         ],
         'postDisplaypreferencesByDisplaypreferencesid' => [
             '/DisplayPreferences/{DisplayPreferencesId}',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

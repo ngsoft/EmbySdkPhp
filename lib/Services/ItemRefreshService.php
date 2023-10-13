@@ -13,6 +13,7 @@ class ItemRefreshService extends ApiService
             '/Items/{Id}/Refresh',
             'POST',
             'void',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

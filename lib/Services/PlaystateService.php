@@ -13,61 +13,73 @@ class PlaystateService extends ApiService
             '/Sessions/Playing',
             'POST',
             'void',
+            false,
         ],
         'postSessionsPlayingProgress'               => [
             '/Sessions/Playing/Progress',
             'POST',
             'void',
+            false,
         ],
         'postSessionsPlayingPing'                   => [
             '/Sessions/Playing/Ping',
             'POST',
             'void',
+            false,
         ],
         'postSessionsPlayingStopped'                => [
             '/Sessions/Playing/Stopped',
             'POST',
             'void',
+            false,
         ],
         'postUsersByUseridPlayeditemsById'          => [
             '/Users/{UserId}/PlayedItems/{Id}',
             'POST',
             '\\EmbyClient\\Model\\UserItemDataDto',
+            false,
         ],
         'deleteUsersByUseridPlayeditemsById'        => [
             '/Users/{UserId}/PlayedItems/{Id}',
             'DELETE',
             '\\EmbyClient\\Model\\UserItemDataDto',
+            false,
         ],
         'postUsersByUseridPlayingitemsById'         => [
             '/Users/{UserId}/PlayingItems/{Id}',
             'POST',
             'void',
+            false,
         ],
         'deleteUsersByUseridPlayingitemsById'       => [
             '/Users/{UserId}/PlayingItems/{Id}',
             'DELETE',
             'void',
+            false,
         ],
         'postUsersByUseridItemsByItemidUserdata'    => [
             '/Users/{UserId}/Items/{ItemId}/UserData',
             'POST',
             'void',
+            false,
         ],
         'postUsersByUseridPlayingitemsByIdProgress' => [
             '/Users/{UserId}/PlayingItems/{Id}/Progress',
             'POST',
             'void',
+            false,
         ],
         'postUsersByUseridPlayingitemsByIdDelete'   => [
             '/Users/{UserId}/PlayingItems/{Id}/Delete',
             'POST',
             'void',
+            false,
         ],
         'postUsersByUseridPlayeditemsByIdDelete'    => [
             '/Users/{UserId}/PlayedItems/{Id}/Delete',
             'POST',
             '\\EmbyClient\\Model\\UserItemDataDto',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

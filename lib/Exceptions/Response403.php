@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace EmbyClient\Model\Exceptions;
 
-use Psr\Http\Client\ClientExceptionInterface;
+use EmbyClient\EmbyException;
 
-class Response403 extends \RuntimeException implements ClientExceptionInterface
+class Response403 extends EmbyException
 {
-    public function __construct($message = 'Forbidden. No permission for the reqested operation.', $code = 403, \Throwable $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    protected string $defaultMessage = 'Forbidden. No permission for the reqested operation.';
+    protected int $defaultCode       = 403;
 }

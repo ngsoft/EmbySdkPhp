@@ -13,36 +13,43 @@ class EnvironmentService extends ApiService
             '/Environment/ValidatePath',
             'POST',
             'mixed',
+            false,
         ],
         'getEnvironmentDefaultdirectorybrowser' => [
             '/Environment/DefaultDirectoryBrowser',
             'GET',
             '\\EmbyClient\\Model\\DefaultDirectoryBrowserInfo',
+            false,
         ],
         'getEnvironmentDirectorycontents'       => [
             '/Environment/DirectoryContents',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\IO\\FileSystemEntryInfo',
         ],
         'getEnvironmentNetworkshares'           => [
             '/Environment/NetworkShares',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\IO\\FileSystemEntryInfo',
         ],
         'getEnvironmentDrives'                  => [
             '/Environment/Drives',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\IO\\FileSystemEntryInfo',
         ],
         'getEnvironmentNetworkdevices'          => [
             '/Environment/NetworkDevices',
             'GET',
             'array',
+            '\\EmbyClient\\Model\\IO\\FileSystemEntryInfo',
         ],
         'getEnvironmentParentpath'              => [
             '/Environment/ParentPath',
             'GET',
             'string',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

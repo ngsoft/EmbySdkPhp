@@ -13,31 +13,37 @@ class MediaInfoService extends ApiService
             '/LiveStreams/Open',
             'POST',
             '\\EmbyClient\\Model\\MediaInfo\\LiveStreamResponse',
+            false,
         ],
         'postLivestreamsClose'      => [
             '/LiveStreams/Close',
             'POST',
             'void',
+            false,
         ],
         'postLivestreamsMediainfo'  => [
             '/LiveStreams/MediaInfo',
             'POST',
             'mixed',
+            false,
         ],
         'getPlaybackBitratetest'    => [
             '/Playback/BitrateTest',
             'GET',
             'mixed',
+            false,
         ],
         'getItemsByIdPlaybackinfo'  => [
             '/Items/{Id}/PlaybackInfo',
             'GET',
             '\\EmbyClient\\Model\\MediaInfo\\PlaybackInfoResponse',
+            false,
         ],
         'postItemsByIdPlaybackinfo' => [
             '/Items/{Id}/PlaybackInfo',
             'POST',
             '\\EmbyClient\\Model\\MediaInfo\\PlaybackInfoResponse',
+            false,
         ],
     ];
     protected static array $queryParameters  = [

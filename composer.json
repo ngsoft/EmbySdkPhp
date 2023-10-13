@@ -47,7 +47,6 @@
   },
   "scripts": {
     "fix": "php vendor/bin/php-cs-fixer fix lib",
-    "generate": "php src/generator.php",
-    "generate:force": "php src/generator.php -f"
+    "generate": "php src/generator.php -f"
   }
 }

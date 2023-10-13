@@ -97,7 +97,7 @@ final class HttpClient
         return self::getHttpFactory()->createRequest($method, $uri);
     }
 
-    public static function sendApiRequest(RequestInterface $request): ?array
+    public static function sendApiRequest(RequestInterface $request, bool $silent = true): ?array
     {
         try
         {
@@ -117,6 +117,19 @@ final class HttpClient
                     true,
                     flags: JSON_THROW_ON_ERROR
                 );
+            }
+
+            if (in_range($resp->getStatusCode(), 400, 404) || 500 === $resp->getStatusCode())
+            {
+                $error = sprintf('\\EmbyClient\\Model\\Exceptions\\Response%u', $resp->getStatusCode());
+
+                throw new $error();
+            }
+        } catch (EmbyException $err)
+        {
+            if ( ! $silent)
+            {
+                throw $err;
             }
         } catch (\Throwable)
         {
