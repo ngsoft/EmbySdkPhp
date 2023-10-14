@@ -67,8 +67,6 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
 
                 $mappedClass       = static::$mapping[$prop] ?? null;
 
-                var_dump($mappedClass, $prop, static::$mapping);
-
                 if (isset($mappedClass))
                 {
                     if (is_array($value))

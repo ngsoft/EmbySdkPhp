@@ -824,7 +824,6 @@ function MakeApi(): void
 
     $template[] = "}\n";
 
-    //    var_dump(implode("\n", $template));
     if (is_file($fileName) && ! $overwrite)
     {
         return;
