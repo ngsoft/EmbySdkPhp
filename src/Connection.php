@@ -6,35 +6,38 @@ namespace EmbyClient;
 
 use Psr\Http\Message\RequestInterface;
 
-class Connection
+final class Connection
 {
     public const BASEPATH             = '%s/emby';
     public const DEFAULT_EMBY_PORT    = 8096;
     public const DEFAULT_HEADER_TOKEN = 'X-Emby-Token';
 
-    protected static ?self $instance  = null;
+    private static ?self $instance    = null;
+    private static array $baseCache   = [];
 
     /**
      * Server test connection status.
      */
-    protected ?bool $connection       = null;
+    private ?bool $connection         = null;
 
-    public function __construct(
+    private bool $secure              = true;
+
+    private function __construct(
         protected string $server,
         protected string $token
     ) {
-        self::$instance = $this;
+        self::$instance ??= $this;
     }
 
     public function __unserialize(array $data): void
     {
-        [$this->server, $this->token] = $data;
-        self::$instance               = $this;
+        [$this->server, $this->token, $this->secure] = $data;
+        self::$instance ??= $this;
     }
 
     public function __serialize(): array
     {
-        return [$this->server, $this->token];
+        return [$this->server, $this->token, $this->secure];
     }
 
     /**
@@ -57,7 +60,11 @@ class Connection
 
     public function getBasePath(): string
     {
-        return sprintf(self::BASEPATH, $this->getServer());
+        return self::$baseCache[$this->getServer()] ??= sprintf(
+            self::BASEPATH,
+            ($this->secure ? 'https://' : 'http://') .
+            $this->getServer()
+        );
     }
 
     public function createRequest(
@@ -74,7 +81,7 @@ class Connection
         }
 
         $request = HttpClient::createRequest($uri, $method)
-            ->withHeader(static::DEFAULT_HEADER_TOKEN, $this->getToken())
+            ->withHeader(self::DEFAULT_HEADER_TOKEN, $this->getToken())
         ;
 
         foreach ($headers as $header => $value)
@@ -90,14 +97,15 @@ class Connection
         array $query = [],
         array $headers = [],
         string $method = 'GET',
-        bool $silent = true
-    ): ?array {
+        bool $silent = true,
+        bool $raw = false
+    ): null|array|string {
         return HttpClient::sendApiRequest($this->createRequest(
             $endpoint,
             $query,
             $headers,
             $method
-        ), $silent);
+        ), $silent, $raw);
     }
 
     /**
@@ -109,19 +117,51 @@ class Connection
     }
 
     /**
+     * Makes Connection active.
+     */
+    public function makeActive(): self
+    {
+        return self::$instance = $this;
+    }
+
+    /**
+     * Uses HTTPS.
+     */
+    public function makeSecure(bool $secure = true): self
+    {
+        $this->secure = $secure;
+        unset(self::$baseCache[$this->getServer()]);
+        return $this;
+    }
+
+    /**
+     * Connection uses https:// ?
+     */
+    public function isSecure(): bool
+    {
+        return $this->secure;
+    }
+
+    /**
      * Connect using host.
      */
-    public static function getConnection(string $host, string $token, int $port = self::DEFAULT_EMBY_PORT): static
+    public static function getConnection(string $host, string $token, int $port = self::DEFAULT_EMBY_PORT): self
     {
-        if ( ! preg_match('#https?://#', $host))
+        $secure           = false;
+
+        if (preg_match('#^https?://#', $host))
         {
-            $host = sprintf('http://%s', rtrim($host, '/'));
+            $secure = str_starts_with($host, 'https');
+            $host   = preg_replace('#^https?://#', '', $host);
+            $host   = preg_replace('#/.*$#', '', $host);
         }
 
         if ( ! preg_match('#:\d+$#', $host))
         {
             $host .= ":{$port}";
         }
-        return new static($host, $token);
+        $instance         = new self($host, $token);
+        $instance->secure = $secure;
+        return $instance;
     }
 }

@@ -123,16 +123,20 @@ abstract class ApiService implements Client
             }
         }
 
+        $getRaw   = ! $endpoint->isList() && ! $endpoint->returnsModel();
+
         if ($resp = $this->connection->makeApiCall(
             $path,
             $query,
             $headers,
             $endpoint->getHttpMethod(),
-            false
+            false,
+            $getRaw
         ))
         {
             $returnType = $endpoint->getReturnType();
 
+            // for autocompletion
             if (is_a($returnType, Model::class, true))
             {
                 if ($endpoint->isList())
@@ -141,12 +145,6 @@ abstract class ApiService implements Client
                 }
 
                 return $returnType::make($resp);
-            }
-
-            // hotfix OpenApiService
-            if ('string' === $returnType && ! is_string($resp))
-            {
-                return json_encode($resp, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             }
 
             // mixed|void

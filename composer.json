@@ -1,6 +1,6 @@
 {
   "name": "ngsoft/emby-client-php",
-  "description": "A php port of EmbyClient.JavaScript.",
+  "description": "A php port of Emby.SDK.",
   "keywords": [
     "emby",
     "sdk",
@@ -24,6 +24,7 @@
     "ngsoft/tools": "^3.1",
     "psr/cache": "^2.0|^3.0",
     "psr/http-client": "^1.0",
+    "psr/log": "^1|^2|^3",
     "tuupola/http-factory": "^1.4"
   },
   "suggest": {

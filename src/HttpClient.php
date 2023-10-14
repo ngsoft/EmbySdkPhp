@@ -19,7 +19,7 @@ use Tuupola\Http\Factory\UriFactory;
 
 final class HttpClient
 {
-    private static int $timeout                 = 5;
+    private static int $timeout                 = 15;
 
     private static ?ClientInterface $httpClient = null;
 
@@ -27,12 +27,23 @@ final class HttpClient
     {
     }
 
+    /**
+     * Set ConnectTimeout + RequestTimeout
+     * Works only with guzzle.
+     */
     public static function setTimeout(int $timeout): void
     {
-        self::$timeout    = $timeout;
-        self::$httpClient = null;
+        self::$timeout = $timeout;
+
+        if (self::$httpClient instanceof Client)
+        {
+            self::$httpClient = null;
+        }
     }
 
+    /**
+     * Returns a PSR-18 HTTP Client.
+     */
     public static function getHttpClient(): ClientInterface
     {
         if ( ! isset(self::$httpClient))
@@ -53,6 +64,9 @@ final class HttpClient
         return self::$httpClient;
     }
 
+    /**
+     * Return all you need to have to make a request.
+     */
     public static function getHttpFactory(): RequestFactoryInterface|UriFactoryInterface|StreamFactoryInterface
     {
         static $instance;
@@ -97,7 +111,11 @@ final class HttpClient
         return self::getHttpFactory()->createRequest($method, $uri);
     }
 
-    public static function sendApiRequest(RequestInterface $request, bool $silent = true): ?array
+    /**
+     * Sends An HTTP Request and decodes the response,
+     * Can also work outside emby.
+     */
+    public static function sendApiRequest(RequestInterface $request, bool $silent = true, bool $raw = false): null|string|array
     {
         try
         {
@@ -106,17 +124,30 @@ final class HttpClient
 
             if (200 === $resp->getStatusCode())
             {
-                $body = $resp->getBody();
+                $body     = $resp->getBody();
                 // prevents annoying bug when
                 // cursor is at the end of the contents
                 // on some psr-7 libraries
                 $body->rewind();
                 // can throw if not json
-                return json_decode(
-                    $body->getContents(),
-                    true,
-                    flags: JSON_THROW_ON_ERROR
-                );
+
+                $contents = $body->getContents();
+
+                if ( ! $raw)
+                {
+                    try
+                    {
+                        return json_decode(
+                            $contents,
+                            true,
+                            flags: JSON_THROW_ON_ERROR
+                        );
+                    } catch (\JsonException)
+                    {
+                    }
+                }
+
+                return $contents;
             }
 
             if (in_range($resp->getStatusCode(), 400, 404) || 500 === $resp->getStatusCode())
@@ -137,6 +168,9 @@ final class HttpClient
         return null;
     }
 
+    /**
+     * Register a custom PSR-18 http clients.
+     */
     public static function setHttpClient(ClientInterface $httpClient): void
     {
         self::$httpClient = $httpClient;

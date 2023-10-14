@@ -132,6 +132,11 @@ final class Endpoint implements \Stringable, ReversibleIterator
         return $this->method;
     }
 
+    public function returnsModel(): bool
+    {
+        return is_a($this->returnType, Model::class, true);
+    }
+
     public function getReturnType(): string
     {
         return $this->returnType;
