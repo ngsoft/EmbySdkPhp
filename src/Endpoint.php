@@ -101,10 +101,12 @@ final class Endpoint implements \Stringable, ReversibleIterator
     public function convertHeaderParameter(string $param): string
     {
         static $cache = [];
-        return $cache[$param] ??= preg_replace_callback(
-            '#[A-Z]#',
-            fn ($letter) => $letter . '-',
-            ucfirst($param)
+        return $cache[$param] ??= ucfirst(
+            preg_replace_callback(
+                '#[A-Z]#',
+                fn ($letter) => '-' . $letter,
+                $param
+            )
         );
     }
 
