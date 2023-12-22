@@ -65,13 +65,21 @@ abstract class Model implements \JsonSerializable, \ArrayAccess
                     }
                 }
 
+                if ('object' === $expectedType)
+                {
+                    $value = (object) $value;
+                }
+
                 $mappedClass       = static::$mapping[$prop] ?? null;
 
                 if (isset($mappedClass))
                 {
                     if (is_array($value))
                     {
-                        if (
+                        if (is_a($mappedClass, DynamicModel::class, true))
+                        {
+                            $value = $mappedClass::make($value);
+                        } elseif (
                             array_is_list($value)
                             && class_exists($mappedClass)
                             && is_a($mappedClass, self::class, true)

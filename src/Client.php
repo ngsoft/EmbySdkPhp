@@ -7,6 +7,6 @@ namespace EmbyClient;
 interface Client
 {
     public const APP         = 'EmbyClientPhp';
-    public const VERSION     = '1.1.1';
+    public const VERSION     = '1.1.2';
     public const DATE_FORMAT = 'Y-m-d\\TH:i:s.v\\Z';
 }

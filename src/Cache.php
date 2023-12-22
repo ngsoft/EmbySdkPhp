@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace EmbyClient;
 
-use NGSOFT\Cache\PHPCache;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
 use Symfony\Component\Cache\Adapter\ApcuAdapter;
@@ -42,9 +41,6 @@ final class Cache
                 self::$cache = new ChainAdapter(
                     $adapters
                 );
-            } elseif (class_exists(PHPCache::class))
-            {
-                self::$cache = new PHPCache();
             }
         }
 
